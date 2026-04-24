@@ -1,24 +1,28 @@
-html{
+/* =======================================================
+   1. ESTILOS GLOBALES (El "Reset")
+   ======================================================= */
+html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
-*,
-*::before,
-*:after{
+*, *::before, *:after {
     box-sizing: inherit;
 }
 
-body{
-    margin: 0px;
+body {
+    margin: 0;
+    overflow-x: hidden; /* Evita movimientos raros a los lados */
 }
 
-#pageTHUNDERT  #headerTHUNDER.fixed-header{
-    background-color:#ffffff;
+.no-margin {
+    margin: 0;
 }
 
-
-#headerTHUNDERT.fixed-header{
+/* =======================================================
+   2. NAVEGACIÓN Y HEADER
+   ======================================================= */
+#headerTHUNDERT.fixed-header {
     position: fixed;
     top: 20px;
     left: 0;
@@ -28,89 +32,84 @@ body{
     background-color: rgba(225, 225, 225, 0.9);
 }
 
-#site-logo a{
-   text-decoration: none;
-   color: inherit;
+#header {
+    height: 80px;
 }
 
-#site-logo img{
-  width: 130px;
-  height: auto;
-  display: block;
-}
-
-ul li {
-    list-style: none;
-}
-
-ul li a{
-    text-decoration: none;
-  font-size: 18px;
-  color:#000;
-}
-ul li a:visited{
-    color: #000;
-}
-
-ul li a:hover{
-    color: #555;
-}
-
-ul li a:active{
-    color: #000;
-}
-
-
-
-.wrapper{
+.wrapper {
     width: 90%;
-    margin:auto;
+    margin: auto;
     overflow: hidden;
     height: 100%;
 }
 
-#site-logo{
+#site-logo {
     float: left;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.nav-links{
+#site-logo img {
+    width: 130px;
+    height: auto;
+}
+
+.nav-links {
     height: 100%;
     display: flex;
     align-items: center;
     float: right;
 }
 
-.d-flex{
+.d-flex {
     display: flex;
 }
 
-.link-header{
-    margin: 0px 8px;
+/* Enlaces del menú */
+ul li { list-style: none; }
+ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
 }
-
-ul li.link-header a{
-    padding-bottom: 8px;
-    color:#000000;
-}
-
-#header{
-    height: 80px;
-}
-/* ... (aquí va tu código de ul li a, .wrapper, .nav-links, etc.) ... */
-
-#header {
-    height: 80px;
-}
+ul li.link-header { margin: 0 8px; }
+ul li a:hover { color: #555; }
 
 /* =======================================================
-   BOTONES FLOTANTES (CONTACTO Y REDES)
+   3. SECCIÓN PORTADA (BANNER)
    ======================================================= */
+.portada {
+    background-image: url(../img/banner.jpeg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0 60px;
+    display: table;
+    width: 100%;
+}
 
-/* --- SECCIÓN DE BOTONES FLOTANTES --- */
+.header__texto {
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 120px;
+}
 
+.header__texto h2 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+h2.no-margin { font-size: 88px; }
+.descrption-titler { font-size: 18px; }
+
+/* =======================================================
+   4. BOTONES FLOTANTES (WhatsApp e Instagram)
+   ======================================================= */
 .whatsapp-container, 
 .instagram-container {
     position: fixed;
@@ -120,13 +119,8 @@ ul li.link-header a{
     height: 60px;
 }
 
-.whatsapp-container {
-    bottom: 30px;
-}
-
-.instagram-container {
-    bottom: 105px; /* Lo sitúa arriba del de WhatsApp */
-}
+.whatsapp-container { bottom: 30px; }
+.instagram-container { bottom: 105px; }
 
 .whatsapp-button, 
 .instagram-button {
@@ -141,20 +135,14 @@ ul li.link-header a{
     text-decoration: none;
 }
 
-.whatsapp-button {
-    background-color: #25d366;
-}
-
-/* El fondo con el color de Instagram */
-.instagram-button {
+.whatsapp-button { background-color: #25d366; }
+.instagram-button { 
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
-/* ESTO ES LO QUE NECESITABAS: Estilo para el ICONO blanco */
 .instagram-button i {
-    color: #ffffff;    /* Color blanco */
-    font-size: 32px;   /* Tamaño del logo */
-    line-height: 1;    /* Evita que se desfase */
+    color: #ffffff !important;
+    font-size: 32px;
 }
 
 .whatsapp-button img {
@@ -162,44 +150,20 @@ ul li.link-header a{
     height: 35px;
 }
 
-.whatsapp-button:hover, 
-.instagram-button:hover {
-    transform: scale(1.1);
-}
+.whatsapp-button:hover, .instagram-button:hover { transform: scale(1.1); }
+
 /* =======================================================
-   PORTADA
+   5. FOOTER (Abajo de la página)
    ======================================================= */
-
-.portada{
-    background-image: url(../img/banner.jpeg);
-    /* ... resto de tu código de portada ... */
-}
-   /*footer*/
-
-/* --- Busca esta parte en tu CSS --- */
-.footer-basic .social > a {
-    /* ... tus estilos actuales ... */
-}
-
-/* AÑADE ESTO JUSTO AQUÍ DEBAJO */
-.footer-basic .social > a i.footer-ig-icon {
-    color: #ffffff;    /* Para que el logo se vea blanco */
-    opacity: 1;        /* Para que no se vea transparente */
-    font-size: 28px;   /* Un poquito más grande para que destaque */
-}   
-
-.footer-basic{
-    padding:  40px 0;
+.footer-basic {
+    padding: 40px 0;
     background-color: #000;
     color: #ffffff;
 }
 
-.footer-basic .social{
-    text-align: center;
+.footer-basic .social { text-align: center; }
 
-}
-
-.footer-basic .social > a{
+.footer-basic .social > a {
     font-size: 24px;
     width: 40px;
     height: 40px;
@@ -211,74 +175,40 @@ ul li.link-header a{
     margin: 0 8px;
     color: #ffffff;
     opacity: 0.75;
-    
 }
 
-.footer-basic .social > a:hover{
-    opacity: 1;
-}
-
-.footer-basic .copyright{
+.footer-basic .copyright {
     margin-top: 15px;
     text-align: center;
     font-size: 13px;
-    margin-bottom: 0px;
-}
-
-.copyright{
     color: #ffffff;
 }
 
+/* =======================================================
+   6. AJUSTES PARA CELULAR (Responsive)
+   ======================================================= */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
 
-  /*portada*/
+    .header__texto h2 {
+        font-size: 3.5rem; /* Letra un poco más pequeña para que quepa */
+    }
 
-.portada{
-    background-image: url(../img/banner.jpeg);
-    height: 100vh;
-    background-size: cover;
-    background-repeat:repeat;
-    background-position: center center;
-    padding: 0px 60px;
-    display: table;
-    width: 100%;
-    background-position: left;
+    h2.no-margin {
+        font-size: 45px;
+    }
+
+    .portada {
+        padding: 0 20px;
+    }
+
+    /* Ajuste de botones flotantes para que no tapen tanto */
+    .whatsapp-container, .instagram-container {
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
 }
-
-
-
-.header__texto{
-    text-align: center;
-    color: white;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding-top: 120px;
-}
-
-h2.no-margin{
-    font-size: 88px;
-}
-
-.border-titler{
-    border-bottom: 4px ;
-    width: 20%;
-}
-.header__texto h2{
-    font-size: 5rem;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-}
-
-.descrption-titler{
-    font-size: 18px;
-}
-
-
-  /*utilidades*/
-
-.no-margin{
-    margin: 0px;
-  }
-
-
-
