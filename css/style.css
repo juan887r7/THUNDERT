@@ -211,54 +211,82 @@ h2.no-margin {
 }
 
 /* =======================================================
-    6. AJUSTES PARA EL CELULAR (RESPONSIVE)
+    6. AJUSTES PARA CELULAR (Responsive) - COMPLETO
    ======================================================= */
 @media screen and (max-width: 768px) {
+    
+    /* --- Ajuste General del Body para evitar el desplazamiento lateral --- */
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important; /* Forzamos el ancho a la pantalla visible */
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important; /* CRUCIAL: Impide que la página se mueva de lado a lado */
+    }
+
+    /* --- Solución para el Header Gris (Barra superior) --- */
     #headerTHUNDERT.fixed-header {
-        top: 0px;
-        height: 65px;
+        top: 0 !important; /* Pegamos el menú arriba del todo en móvil */
+        background-color: rgba(225, 225, 225, 0.98) !important; /* Un poco menos transparente */
+        padding: 8px 0 !important; /* Menos relleno para que sea más compacto */
+        height: auto !important; /* Permitimos que la altura se adapte */
+        border-bottom: 1px solid #ddd; /* Pequeña línea divisoria */
     }
 
-    #header {
-        height: 65px;
-    }
-
-    .nav-links {
-        display: none; /* Ocultamos letras en móvil para evitar el amontonamiento */
+    /* Usamos flexbox para centrar el logo y asegurarnos de que nada se corte */
+    .wrapper {
+        width: 100% !important; /* Usamos todo el ancho */
+        max-width: 100vw !important;
+        padding: 0 15px !important; /* Pequeños márgenes internos */
+        display: flex !important;
+        justify-content: center !important; /* Centramos el logo horizontalmente */
+        align-items: center !important; /* Centramos verticalmente */
+        overflow: hidden !important;
     }
 
     #site-logo {
-        float: none;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        float: none !important; /* Quitamos el float viejo */
+        display: block !important;
+        margin: 0 auto !important; /* Centrado extra */
+        text-align: center;
     }
 
     #site-logo img {
-        width: 100px;
+        width: 110px !important; /* Logo más pequeño para celular */
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Ocultamos por completo las letras (DROPS, SNEAKERS, FRAGANCIAS) en celular */
+    /* Esto es crucial para que no se amontone y deforme el header */
+    .nav-links {
+        display: none !important; 
+    }
+
+    /* --- Ajustes del Texto Principal en la Portada --- */
+    .header__texto {
+        padding-top: 100px !important; /* Damos espacio después del header */
     }
 
     .header__texto h2 {
-        font-size: 3.2rem;
+        font-size: 3.5rem !important; /* Letra más pequeña */
     }
 
     h2.no-margin {
-        font-size: 4.2rem;
+        font-size: 48px !important; /* Texto principal ajustado */
     }
 
     .descrption-titler {
-        font-size: 1.5rem;
-        padding: 0 10px;
+        font-size: 15px !important; /* Descripción ajustada */
+        line-height: 1.4 !important;
+        padding: 0 10px; /* Margen para el texto */
     }
 
-    .portada {
-        padding: 0px 20px;
-        background-position: center;
-    }
-
-    .whatsapp-container, .instagram-container {
-        right: 15px;
-        width: 55px;
-        height: 55px;
+    /* --- Ajuste del Botón de WhatsApp restante --- */
+    .whatsapp-container {
+        right: 15px !important;
+        bottom: 15px !important;
+        width: 55px !important;
+        height: 55px !important;
     }
 }
