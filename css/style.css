@@ -1,181 +1,157 @@
 /* =======================================================
-    1. ESTILOS GLOBALES Y RESET
+    1. REGLAS BASE
    ======================================================= */
 html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
-*, *::before, *::after {
+* {
     box-sizing: inherit;
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
     background-color: #000000;
-    overflow-x: hidden;
     width: 100%;
+    overflow-x: hidden;
     font-family: sans-serif;
 }
 
-.no-margin {
-    margin: 0px;
-}
-
 /* =======================================================
-    2. HEADER (LA BARRA GRIS SUPERIOR)
+    2. CABECERA GRIS (FIJA)
    ======================================================= */
 #headerTHUNDERT.fixed-header {
     position: fixed;
-    top: 20px;
-    left: 0;
+    top: 0px;
+    left: 0px;
     width: 100%;
+    height: 90px;
+    background-color: rgba(225, 225, 225, 0.95);
     z-index: 1000;
-    transition: height 0.3s;
-    background-color: rgba(225, 225, 225, 0.9);
-}
-
-#header {
-    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .wrapper {
     width: 90%;
-    margin: 0 auto;
-    overflow: hidden;
-    height: 100%;
+    max-width: 1200px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #site-logo {
-    float: left;
-    height: 100%;
     display: flex;
     align-items: center;
 }
 
 #site-logo img {
-    width: 130px;
-    height: auto;
+    height: 65px;
+    width: auto;
     display: block;
 }
 
 .nav-links {
-    height: 100%;
     display: flex;
-    align-items: center;
-    float: right;
 }
 
 .nav-links ul {
     display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    flex-direction: row;
+    list-style-type: none;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
-.nav-links ul li.link-header {
-    margin: 0px 15px;
+.nav-links ul li {
+    margin-left: 35px;
 }
 
 .nav-links ul li a {
     text-decoration: none;
-    font-size: 16px;
     color: #000000;
+    font-size: 1.6rem;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.nav-links ul li a:hover {
-    color: #555555;
-}
-
 /* =======================================================
-    3. SECCIÓN DE PORTADA (EL BANNER Y EL RAYO)
+    3. PORTADA Y TEXTO
    ======================================================= */
 .portada {
     background-image: url(../img/banner.jpeg);
-    height: 100vh;
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center center;
-    padding: 0px 60px;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .header__texto {
     text-align: center;
     color: #ffffff;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 50px;
+    max-width: 750px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 90px; /* Evita que el header lo tape */
 }
 
-.header__texto h2 {
-    font-size: 5.5rem;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-    text-transform: uppercase;
-}
-
-h2.no-margin {
-    font-size: 8.5rem;
-    line-height: 1.1;
+.border-titler {
+    height: 2px;
+    width: 80px;
+    background-color: #ffffff;
     margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 25px;
+    margin-left: auto;
 }
 
 .descrption-titler {
-    font-size: 1.8rem;
-    line-height: 1.6;
-    margin-top: 15px;
-    color: #f1f1f1;
+    font-size: 1.9rem;
+    line-height: 1.7;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
 }
 
 /* =======================================================
-    4. BOTONES FLOTANTES (INTERACCIÓN)
+    4. BOTÓN WHATSAPP
    ======================================================= */
 .whatsapp-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 9999;
-    width: 60px;
-    height: 60px;
-}
-
-.instagram-container {
-    position: fixed;
-    bottom: 105px;
-    right: 30px;
-    z-index: 9999;
-    width: 60px;
-    height: 60px;
-}
-
-.whatsapp-button, 
-.instagram-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-    text-decoration: none;
 }
 
 .whatsapp-button {
     background-color: #25d366;
-}
-
-.instagram-button { 
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 .whatsapp-button img {
@@ -183,110 +159,74 @@ h2.no-margin {
     height: 35px;
 }
 
-.instagram-button img {
-    width: 32px;
-    height: 32px;
-}
-
-.whatsapp-button:hover, .instagram-button:hover {
-    transform: scale(1.1);
-}
-
 /* =======================================================
-    5. FOOTER (PARTE BAJA)
-   ======================================================= */
-.footer-basic {
-    padding: 50px 0px;
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    border-top: 1px solid #222222;
-}
-
-.footer-basic .copyright {
-    margin-top: 15px;
-    font-size: 1.3rem;
-    opacity: 0.7;
-    letter-spacing: 1px;
-}
-
-/* =======================================================
-    6. AJUSTES PARA CELULAR (Responsive) - COMPLETO
+    5. RESPONSIVE (MÓVIL)
    ======================================================= */
 @media screen and (max-width: 768px) {
-    
-    /* --- Ajuste General del Body para evitar el desplazamiento lateral --- */
-    html, body {
-        width: 100% !important;
-        max-width: 100vw !important; /* Forzamos el ancho a la pantalla visible */
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden !important; /* CRUCIAL: Impide que la página se mueva de lado a lado */
-    }
-
-    /* --- Solución para el Header Gris (Barra superior) --- */
     #headerTHUNDERT.fixed-header {
-        top: 0 !important; /* Pegamos el menú arriba del todo en móvil */
-        background-color: rgba(225, 225, 225, 0.98) !important; /* Un poco menos transparente */
-        padding: 8px 0 !important; /* Menos relleno para que sea más compacto */
-        height: auto !important; /* Permitimos que la altura se adapte */
-        border-bottom: 1px solid #ddd; /* Pequeña línea divisoria */
+        height: 75px;
     }
 
-    /* Usamos flexbox para centrar el logo y asegurarnos de que nada se corte */
     .wrapper {
-        width: 100% !important; /* Usamos todo el ancho */
-        max-width: 100vw !important;
-        padding: 0 15px !important; /* Pequeños márgenes internos */
-        display: flex !important;
-        justify-content: center !important; /* Centramos el logo horizontalmente */
-        align-items: center !important; /* Centramos verticalmente */
-        overflow: hidden !important;
-    }
-
-    #site-logo {
-        float: none !important; /* Quitamos el float viejo */
-        display: block !important;
-        margin: 0 auto !important; /* Centrado extra */
-        text-align: center;
+        width: 95%;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     #site-logo img {
-        width: 110px !important; /* Logo más pequeño para celular */
-        max-width: 100% !important;
-        height: auto !important;
+        height: 48px;
     }
 
-    /* Ocultamos por completo las letras (DROPS, SNEAKERS, FRAGANCIAS) en celular */
-    /* Esto es crucial para que no se amontone y deforme el header */
-    .nav-links {
-        display: none !important; 
+    .nav-links ul li {
+        margin-left: 15px;
     }
 
-    /* --- Ajustes del Texto Principal en la Portada --- */
-    .header__texto {
-        padding-top: 100px !important; /* Damos espacio después del header */
-    }
-
-    .header__texto h2 {
-        font-size: 3.5rem !important; /* Letra más pequeña */
-    }
-
-    h2.no-margin {
-        font-size: 48px !important; /* Texto principal ajustado */
+    .nav-links ul li a {
+        font-size: 1.2rem;
     }
 
     .descrption-titler {
-        font-size: 15px !important; /* Descripción ajustada */
-        line-height: 1.4 !important;
-        padding: 0 10px; /* Margen para el texto */
+        font-size: 1.6rem;
+    }
+}
+/* Hamburguesa — oculta en desktop, visible en móvil */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2.4rem;
+    cursor: pointer;
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
     }
 
-    /* --- Ajuste del Botón de WhatsApp restante --- */
-    .whatsapp-container {
-        right: 15px !important;
-        bottom: 15px !important;
-        width: 55px !important;
-        height: 55px !important;
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(225, 225, 225, 0.97);
+        padding: 10px 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .nav-links ul li {
+        margin-left: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 }
