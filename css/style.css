@@ -1,247 +1,103 @@
-/* =======================================================
-   1. ESTILOS GLOBALES (El "Reset")
-   ======================================================= */
+/* --- AJUSTES BASE --- */
 html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
-*, *::before, *:after {
+*, *:before, *:after {
     box-sizing: inherit;
 }
 
 body {
     margin: 0;
-    overflow-x: hidden; /* Evita movimientos raros a los lados */
+    padding: 0;
+    width: 100%;
+    /* EVITA EL MOVIMIENTO LATERAL */
+    overflow-x: hidden; 
+    font-family: sans-serif;
 }
 
-.no-margin {
-    margin: 0;
-}
-
-/* =======================================================
-   2. NAVEGACIÓN Y HEADER
-   ======================================================= */
+/* --- HEADER FLEXIBLE --- */
 #headerTHUNDERT.fixed-header {
     position: fixed;
-    top: 20px;
+    top: 0; /* Pegado arriba para evitar saltos en móvil */
     left: 0;
     width: 100%;
-    z-index: 1000;
-    transition: height .3s;
+    height: 70px; /* Un poco más delgado para que no tape todo */
     background-color: rgba(225, 225, 225, 0.9);
-}
-
-#header {
-    height: 80px;
-}
-
-.wrapper {
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    height: 100%;
-}
-
-#site-logo {
-    float: left;
-    height: 100%;
+    z-index: 1000;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Logo a un lado, menú al otro */
+    padding: 0 5%; /* Espacio flexible a los lados */
 }
 
 #site-logo img {
-    width: 130px;
+    max-width: 120px; /* No se pasará de aquí */
+    width: 100%;     /* Pero se encogerá si la pantalla es mini */
     height: auto;
 }
 
 .nav-links {
-    height: 100%;
     display: flex;
-    align-items: center;
-    float: right;
+    gap: 15px;
 }
 
-.d-flex {
-    display: flex;
-}
-
-/* Enlaces del menú */
-ul li { list-style: none; }
-ul li a {
-    text-decoration: none;
-    font-size: 18px;
-    color: #000;
-}
-ul li.link-header { margin: 0 8px; }
-ul li a:hover { color: #555; }
-
-/* =======================================================
-   3. SECCIÓN PORTADA (BANNER)
-   ======================================================= */
+/* --- PORTADA RESPONSIVA --- */
 .portada {
     background-image: url(../img/banner.jpeg);
-    height: 100vh;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-position: center center;
-    padding: 0 60px;
-    display: table;
     width: 100%;
-}
-
-.header__texto {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: white;
-    max-width: 900px;
-    margin: 0 auto;
-    padding-top: 120px;
+    padding: 0 20px; /* Margen para que el texto no toque los bordes */
 }
 
+/* --- TEXTOS QUE SE AJUSTAN --- */
 .header__texto h2 {
-    font-size: 5rem;
+    font-size: clamp(3rem, 8vw, 6rem); /* Tamaño dinámico: mínimo 3, máximo 6 */
+    color: white;
     margin-bottom: 20px;
-    letter-spacing: 3px;
 }
 
-h2.no-margin { font-size: 88px; }
-.descrption-titler { font-size: 18px; }
+.descrption-titler {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    color: white;
+    max-width: 600px;
+}
 
-/* =======================================================
-   4. BOTONES FLOTANTES (WhatsApp e Instagram)
-   ======================================================= */
-.whatsapp-container, 
-.instagram-container {
+/* --- BOTONES FLOTANTES --- */
+.instagram-container, .whatsapp-container {
     position: fixed;
-    right: 30px;
+    right: 20px;
     z-index: 9999;
-    width: 60px;
-    height: 60px;
 }
+.instagram-container { bottom: 90px; }
+.whatsapp-container { bottom: 20px; }
 
-.whatsapp-container { bottom: 30px; }
-.instagram-container { bottom: 105px; }
-
-.whatsapp-button, 
-.instagram-button {
+.instagram-button, .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.whatsapp-button { background-color: #25d366; }
-.instagram-button { 
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-
-.instagram-button i {
-    color: #ffffff !important;
-    font-size: 32px;
-}
-
-.whatsapp-button img {
-    width: 35px;
-    height: 35px;
-}
-
-.whatsapp-button:hover, .instagram-button:hover { transform: scale(1.1); }
-
-/* =======================================================
-   5. FOOTER (Abajo de la página)
-   ======================================================= */
-.footer-basic {
-    padding: 40px 0;
-    background-color: #000;
-    color: #ffffff;
-}
-
-.footer-basic .social { text-align: center; }
-
-.footer-basic .social > a {
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 50%;
-    border: 1px solid #ffffff;
-    margin: 0 8px;
-    color: #ffffff;
-    opacity: 0.75;
-}
-
-.footer-basic .copyright {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 13px;
-    color: #ffffff;
-}
-
-/* =======================================================
-   6. AJUSTES PARA CELULAR (Responsive)
-   ======================================================= */
-@media (max-width: 768px) {
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    .header__texto h2 {
-        font-size: 3.5rem; /* Letra un poco más pequeña para que quepa */
-    }
-
-    h2.no-margin {
-        font-size: 45px;
-    }
-
-    .portada {
-        padding: 0 20px;
-    }
-
-    /* Ajuste de botones flotantes para que no tapen tanto */
-    .whatsapp-container, .instagram-container {
-        right: 15px;
-        width: 50px;
-        height: 50px;
-    }
-
-    /* --- Ajustes específicos para el Header en Celular --- */
-    #headerTHUNDERT.fixed-header {
-        top: 0 !important; /* Pegamos el menú arriba del todo, sin el espacio de 20px */
-        padding: 5px 0; /* Menos relleno para que sea más fino */
-    }
-
-    #header {
-        height: auto !important; /* Dejamos que la altura se adapte al contenido */
-    }
-
-    .wrapper {
-        width: 95% !important; /* Usamos casi todo el ancho */
-        display: flex; /* Alineamos logo y menú en línea */
-        justify-content: space-between; /* Uno a cada extremo */
-        align-items: center; /* Centrados verticalmente */
-    }
-
-    #site-logo {
-        float: none !important; /* Quitamos el float viejo */
-        width: auto !important;
-    }
-
-    #site-logo img {
-        width: 90px !important; /* Logo más pequeñito para celular */
-        height: auto;
-    }
-
-    /* Ocultamos el menú de texto (DROPS, SNEAKERS) en celular */
-    /* Lo ideal sería un menú hamburguesa, pero por ahora lo ocultamos para que no desfigure la página */
+/* --- REGLAS PARA PANTALLAS MUY PEQUEÑAS (MÓVIL) --- */
+@media (max-width: 600px) {
     .nav-links {
-        display: none !important; 
+        display: none; /* Escondemos el menú de texto para que no choque con el logo */
+    }
+    
+    #headerTHUNDERT.fixed-header {
+        justify-content: center; /* Centramos solo el logo en el móvil */
     }
 }
