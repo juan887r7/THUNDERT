@@ -211,4 +211,37 @@ h2.no-margin { font-size: 88px; }
         width: 50px;
         height: 50px;
     }
+
+    /* --- Ajustes específicos para el Header en Celular --- */
+    #headerTHUNDERT.fixed-header {
+        top: 0 !important; /* Pegamos el menú arriba del todo, sin el espacio de 20px */
+        padding: 5px 0; /* Menos relleno para que sea más fino */
+    }
+
+    #header {
+        height: auto !important; /* Dejamos que la altura se adapte al contenido */
+    }
+
+    .wrapper {
+        width: 95% !important; /* Usamos casi todo el ancho */
+        display: flex; /* Alineamos logo y menú en línea */
+        justify-content: space-between; /* Uno a cada extremo */
+        align-items: center; /* Centrados verticalmente */
+    }
+
+    #site-logo {
+        float: none !important; /* Quitamos el float viejo */
+        width: auto !important;
+    }
+
+    #site-logo img {
+        width: 90px !important; /* Logo más pequeñito para celular */
+        height: auto;
+    }
+
+    /* Ocultamos el menú de texto (DROPS, SNEAKERS) en celular */
+    /* Lo ideal sería un menú hamburguesa, pero por ahora lo ocultamos para que no desfigure la página */
+    .nav-links {
+        display: none !important; 
+    }
 }
