@@ -1,103 +1,227 @@
-/* --- AJUSTES BASE --- */
+/* =======================================================
+    1. ESTILOS GLOBALES (RESET)
+   ======================================================= */
 html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    background-color: #000;
+    overflow-x: hidden;
     width: 100%;
-    /* EVITA EL MOVIMIENTO LATERAL */
-    overflow-x: hidden; 
     font-family: sans-serif;
 }
 
-/* --- HEADER FLEXIBLE --- */
+.no-margin {
+    margin: 0px;
+}
+
+/* =======================================================
+    2. CABECERA (HEADER FIXED)
+   ======================================================= */
 #headerTHUNDERT.fixed-header {
     position: fixed;
-    top: 0; /* Pegado arriba para evitar saltos en móvil */
+    top: 20px;
     left: 0;
     width: 100%;
-    height: 70px; /* Un poco más delgado para que no tape todo */
-    background-color: rgba(225, 225, 225, 0.9);
     z-index: 1000;
+    transition: height .3s;
+    background-color: rgba(225, 225, 225, 0.9);
+}
+
+#header {
+    height: 80px;
+}
+
+.wrapper {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    height: 100%;
+}
+
+#site-logo {
+    float: left;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Logo a un lado, menú al otro */
-    padding: 0 5%; /* Espacio flexible a los lados */
 }
 
 #site-logo img {
-    max-width: 120px; /* No se pasará de aquí */
-    width: 100%;     /* Pero se encogerá si la pantalla es mini */
+    width: 130px;
     height: auto;
+    display: block;
 }
 
+/* ARREGLO PARA QUE EL MENÚ NO SALGA EN FILA HACIA ABAJO */
 .nav-links {
+    height: 100%;
     display: flex;
-    gap: 15px;
+    align-items: center;
+    float: right;
 }
 
-/* --- PORTADA RESPONSIVA --- */
+.nav-links ul {
+    display: flex; /* Esto pone DROPS, SNEAKERS y FRAGANCIAS en una sola línea */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links ul li.link-header {
+    margin: 0px 15px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-links ul li a:hover {
+    color: #555;
+}
+
+/* =======================================================
+    3. SECCIÓN PORTADA (HERO)
+   ======================================================= */
 .portada {
     background-image: url(../img/banner.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px; /* Margen para que el texto no toque los bordes */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0px 60px;
+    display: table;
+    width: 100%;
 }
 
-/* --- TEXTOS QUE SE AJUSTAN --- */
-.header__texto h2 {
-    font-size: clamp(3rem, 8vw, 6rem); /* Tamaño dinámico: mínimo 3, máximo 6 */
+.header__texto {
+    text-align: center;
     color: white;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 120px;
+}
+
+.header__texto h2 {
+    font-size: 5rem;
     margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+h2.no-margin {
+    font-size: 88px;
+    margin-top: 0;
 }
 
 .descrption-titler {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-    color: white;
-    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
-/* --- BOTONES FLOTANTES --- */
-.instagram-container, .whatsapp-container {
+/* =======================================================
+    4. BOTONES FLOTANTES (INTERACCIÓN)
+   ======================================================= */
+.whatsapp-container, 
+.instagram-container {
     position: fixed;
-    right: 20px;
+    right: 30px;
     z-index: 9999;
+    width: 60px;
+    height: 60px;
 }
-.instagram-container { bottom: 90px; }
-.whatsapp-container { bottom: 20px; }
 
-.instagram-button, .whatsapp-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.whatsapp-container { bottom: 30px; }
+.instagram-container { bottom: 105px; }
+
+.whatsapp-button, 
+.instagram-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-/* --- REGLAS PARA PANTALLAS MUY PEQUEÑAS (MÓVIL) --- */
-@media (max-width: 600px) {
-    .nav-links {
-        display: none; /* Escondemos el menú de texto para que no choque con el logo */
-    }
-    
+.whatsapp-button { background-color: #25d366; }
+.instagram-button { 
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.whatsapp-button img, .instagram-button img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-button:hover, .instagram-button:hover {
+    transform: scale(1.1);
+}
+
+/* =======================================================
+    5. FOOTER (PANEL INFERIOR)
+   ======================================================= */
+.footer-basic {
+    padding: 40px 0;
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.footer-basic .copyright {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+/* =======================================================
+    6. AJUSTE PARA DISPOSITIVOS (RESPONSIVE)
+   ======================================================= */
+@media screen and (max-width: 768px) {
     #headerTHUNDERT.fixed-header {
-        justify-content: center; /* Centramos solo el logo en el móvil */
+        top: 0;
+        height: 65px;
+    }
+
+    #header { height: 65px; }
+
+    .nav-links {
+        display: none; /* Se oculta en móvil para que no se vea amontonado */
+    }
+
+    #site-logo {
+        float: none;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #site-logo img {
+        width: 100px;
+    }
+
+    .header__texto h2 {
+        font-size: 3.5rem;
+    }
+
+    h2.no-margin {
+        font-size: 40px;
+    }
+
+    .portada {
+        padding: 0 20px;
     }
 }
