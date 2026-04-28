@@ -287,3 +287,14 @@ ul li.link-header a{
     border-radius: 50%;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
+
+.txt-base-carousel-secction--discount {
+    background-color: #333; /* Gris oscuro para combinar con Thundert */
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-right: 5px;
+    text-transform: uppercase;
+}
