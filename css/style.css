@@ -76,6 +76,10 @@ ul li a{
     display: flex;
 }
 
+.center-text{
+    text-align: center;
+}
+
 .link-header{
     margin: 0px 8px;
 }
@@ -288,13 +292,59 @@ ul li.link-header a{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
-.txt-base-carousel-secction--discount {
-    background-color: #333; /* Gris oscuro para combinar con Thundert */
-    color: #fff;
-    padding: 2px 8px;
-    font-size: 0.7rem;
+/*lo ultimo*/
+
+#site-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+#headerTHUNDERT.fixed-header {
+    top: 0 !important; /* Cambia el 20px que tenías por 0 para que no flote raro */
+    background-color: #ffffff; /* Blanco sólido para que no se transparente el texto de abajo */
+}
+
+.bg-gray{
+    background-color: #f3f3f3;
+}
+
+.seccion-ultimo{
+    height: 350px;
+    padding: 15px 80px;
+    display: flex;
+    place-content: space-around;
+}
+
+.ultimo-ind {
+    background-color: #ffffff;
+    width: 280px; /* Usa un ancho fijo o un porcentaje mayor */
+    height: auto; /* Deja que crezca según el contenido */
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.producto {
+    max-height: 180px; /* Un poco más de espacio para que se luzca */
+    width: 100%;
+    object-fit: contain; /* Esto evita que la imagen se estire */
+    padding: 15px;
+    display: block;
+    margin: 0 auto;
+}
+.boton--primario {
+    background-color: #000000; /* Negro puro como el logo */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
     font-weight: bold;
-    border-radius: 4px;
-    margin-right: 5px;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.boton--primario:hover {
+    background-color: #333333; /* Un gris oscuro al pasar el mouse */
 }
