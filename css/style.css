@@ -217,91 +217,83 @@ ul li.link-header a{
 /* RESPONSIVE */
 
 /* Tablet */
+/* Tablet */
 @media (max-width: 992px) {
     #site-logo img {
-        width: 100px;
+        width: 80px; /* Bajamos de 100 a 80 para que no sea tan brusco el cambio */
     }
 
     .nav-links ul li {
-        margin-left: 15px;
+        margin-left: 10px;
     }
 
     .nav-links ul li a {
-        font-size: 1.4rem;
-    }
-
-    .header__texto h2 {
-        font-size: 4rem;
-    }
-
-    .descrption-titler {
-        font-size: 1.8rem;
+        font-size: 1.1rem; /* 1.4 era muy grande para tablet */
     }
 }
 
+/* Celular (Aquí pegas el REEMPLAZO TOTAL que ya tienes) */
+@media (max-width: 768px) {
+    /* ... todo el código que ya tienes con los !important ... */
+}
 /* Celular */
+/* =======================================================
+    REEMPLAZO TOTAL PARA MÓVILES (Optimizado para THUNDERT)
+   ======================================================= */
 @media (max-width: 768px) {
 
+    /* Hacemos el header mucho más delgado */
     #headerTHUNDERT.fixed-header {
         top: 0;
-        padding: 10px 0;
+        padding: 5px 0 !important; 
+        background-color: rgba(255, 255, 255, 0.95);
     }
 
-    #header {
-        height: auto;
-    }
-
-    .wrapper {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
+    /* Reducimos el logo para que no empuje el contenido */
     #site-logo img {
-        width: 90px;
-        margin-bottom: 10px;
+        width: 60px !important; 
+        margin-bottom: 2px !important;
     }
 
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-    }
-
+    /* Forzamos el menú (DROPS, SNEAKERS...) a una sola línea fina */
     .nav-links ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-links ul li {
-        margin: 5px 10px;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        padding: 0 0 5px 0 !important;
     }
 
     .nav-links ul li a {
-        font-size: 1.3rem;
+        font-size: 0.85rem !important;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 
+    /* Ajustamos la portada para que el texto THUNDERT no se corte */
     .portada {
-        height: auto;
-        min-height: 100vh;
-        padding: 120px 20px 50px 20px;
-        background-position: center;
+        height: 100vh;
+        /* Este padding de 145px es el que "baja" el texto para que el dueño lo vea bien */
+        padding: 145px 20px 40px 20px !important; 
+        background-attachment: scroll !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     .header__texto h2 {
-        font-size: 3rem;
+        font-size: 3.2rem !important;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }
 
     .descrption-titler {
-        font-size: 1.5rem;
-    }
-
-    body {
-        overflow-x: hidden;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
+        font-size: 1.2rem !important;
+        letter-spacing: 2px;
     }
 }
 
+/*  =======================================================
+    FIN DE LOS ESTILOS DE LA PORTADA
+   ======================================================= */
