@@ -294,6 +294,41 @@ ul li.link-header a{
     }
 }
 
-/*  =======================================================
-    FIN DE LOS ESTILOS DE LA PORTADA
+/* =======================================================
+    BOTÓN DE WHATSAPP FLOTANTE
    ======================================================= */
+.whatsapp-container {
+    position: fixed;    /* Se queda quieto aunque hagas scroll */
+    bottom: 25px;       /* Distancia desde abajo */
+    right: 25px;        /* Distancia desde la derecha */
+    z-index: 9999;      /* Para que siempre esté por encima de todo */
+}
+
+.whatsapp-button {
+    background-color: #25d366; /* El verde de WhatsApp */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;        /* Tamaño del círculo */
+    height: 60px;
+    border-radius: 50%; /* Lo hace redondo */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para que resalte */
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Crece un poquito cuando pasas el mouse */
+    background-color: #128c7e; /* Un verde más oscuro */
+}
+
+/* Ajuste para que en el celular no sea tan grande */
+@media (max-width: 768px) {
+    .whatsapp-container {
+        bottom: 15px;
+        right: 15px;
+    }
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+    }
+}
