@@ -292,59 +292,144 @@ ul li.link-header a{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
-/*lo ultimo*/
+/* =======================================================
+    SECCIÓN LO ÚLTIMO (CARRUSEL Y PRODUCTOS)
+   ======================================================= */
 
-#site-logo img {
-    max-width: 100%;
-    height: auto;
+/* Título imponente */
+.titulo-seccion-grande {
+    font-size: 5rem; /* Tamaño masivo */
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 12px; /* Espaciado premium */
+    margin: 50px 0;
+    color: #000;
 }
 
-#headerTHUNDERT.fixed-header {
-    top: 0 !important; /* Cambia el 20px que tenías por 0 para que no flote raro */
-    background-color: #ffffff; /* Blanco sólido para que no se transparente el texto de abajo */
-}
-
-.bg-gray{
-    background-color: #f3f3f3;
-}
-
-.seccion-ultimo{
-    height: 350px;
-    padding: 15px 80px;
+/* Contenedor del Carrusel */
+.carrusel-wrapper {
+    position: relative;
     display: flex;
-    place-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
+/* Contenedor de las tarjetas (Se desliza) */
+.bg-gray.seccion-ultimo {
+    display: flex;
+    justify-content: flex-start; /* Alinea al inicio para el carrusel */
+    align-items: stretch;
+    gap: 25px;
+    padding: 40px 10px;
+    width: 100%;
+    overflow-x: auto; /* Permite scroll manual en móvil */
+    scroll-behavior: smooth;
+}
+
+/* Ocultar barra de scroll para estética limpia */
+.bg-gray.seccion-ultimo::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjeta de Producto Individual */
 .ultimo-ind {
     background-color: #ffffff;
-    width: 280px; /* Usa un ancho fijo o un porcentaje mayor */
-    height: auto; /* Deja que crezca según el contenido */
-    border-radius: 16px;
-    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-width: 320px; /* Ancho fijo para que entren varias en fila */
+    max-width: 320px;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+/* Imagen del Producto */
 .producto {
-    max-height: 180px; /* Un poco más de espacio para que se luzca */
     width: 100%;
-    object-fit: contain; /* Esto evita que la imagen se estire */
-    padding: 15px;
-    display: block;
-    margin: 0 auto;
+    height: 250px; /* Altura fija para uniformidad */
+    object-fit: contain; 
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
+
+/* Etiquetas de Descuento */
+.txt-base-carousel-secction--discount {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+/* Nombre del producto */
+.ultimo-ind span:not(.txt-base-carousel-secction--discount) {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+/* Precio */
+.txt-base-carousel-section-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Botones de Flechas (Navegación) */
+.flecha-carrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.flecha-carrusel.prev { left: -10px; }
+.flecha-carrusel.next { right: -10px; }
+
+.flecha-carrusel:hover {
+    background: #333;
+    scale: 1.1;
+}
+
+/* Botón de Agregar */
 .boton--primario {
-    background-color: #000000; /* Negro puro como el logo */
+    background-color: #000000;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: 0.3s;
     border-radius: 4px;
+    width: 100%;
 }
 
 .boton--primario:hover {
-    background-color: #333333; /* Un gris oscuro al pasar el mouse */
+    background-color: #333333;
 }
