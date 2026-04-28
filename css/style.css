@@ -216,67 +216,47 @@ ul li.link-header a{
 
 /* RESPONSIVE */
 
-/* Tablet */
-/* Tablet */
-@media (max-width: 992px) {
-    #site-logo img {
-        width: 80px; /* Bajamos de 100 a 80 para que no sea tan brusco el cambio */
-    }
-
-    .nav-links ul li {
-        margin-left: 10px;
-    }
-
-    .nav-links ul li a {
-        font-size: 1.1rem; /* 1.4 era muy grande para tablet */
-    }
-}
-
-/* Celular (Aquí pegas el REEMPLAZO TOTAL que ya tienes) */
-@media (max-width: 768px) {
-    /* ... todo el código que ya tienes con los !important ... */
-}
-/* Celular */
 /* =======================================================
-    REEMPLAZO TOTAL PARA MÓVILES (Optimizado para THUNDERT)
+    1. TABLET (Pantallas medianas)
+   ======================================================= */
+@media (max-width: 992px) {
+    #site-logo img { width: 80px; }
+    .nav-links ul li a { font-size: 1.1rem; }
+    .header__texto h2 { font-size: 4rem; }
+}
+
+/* =======================================================
+    2. CELULAR (Lo que verá el dueño en su móvil)
    ======================================================= */
 @media (max-width: 768px) {
-
-    /* Hacemos el header mucho más delgado */
+    /* Header ultra delgado */
     #headerTHUNDERT.fixed-header {
-        top: 0;
-        padding: 5px 0 !important; 
-        background-color: rgba(255, 255, 255, 0.95);
+        padding: 5px 0 !important;
+        background-color: rgba(255, 255, 255, 0.98);
     }
 
-    /* Reducimos el logo para que no empuje el contenido */
+    /* Logo pequeño para ganar espacio */
     #site-logo img {
-        width: 60px !important; 
+        width: 60px !important;
         margin-bottom: 2px !important;
     }
 
-    /* Forzamos el menú (DROPS, SNEAKERS...) a una sola línea fina */
+    /* Menú en una sola línea horizontal */
     .nav-links ul {
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important;
         gap: 12px !important;
-        margin: 0 !important;
-        padding: 0 0 5px 0 !important;
     }
 
     .nav-links ul li a {
         font-size: 0.85rem !important;
-        font-weight: bold;
-        letter-spacing: 1px;
     }
 
-    /* Ajustamos la portada para que el texto THUNDERT no se corte */
+    /* Bajamos la portada para que el logo no tape a THUNDERT */
     .portada {
+        padding-top: 150px !important; 
         height: 100vh;
-        /* Este padding de 145px es el que "baja" el texto para que el dueño lo vea bien */
-        padding: 145px 20px 40px 20px !important; 
-        background-attachment: scroll !important;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -284,51 +264,26 @@ ul li.link-header a{
 
     .header__texto h2 {
         font-size: 3.2rem !important;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    }
-
-    .descrption-titler {
-        font-size: 1.2rem !important;
-        letter-spacing: 2px;
     }
 }
 
 /* =======================================================
-    BOTÓN DE WHATSAPP FLOTANTE
+    3. WHATSAPP FLOTANTE (Abajo a la derecha)
    ======================================================= */
 .whatsapp-container {
-    position: fixed;    /* Se queda quieto aunque hagas scroll */
-    bottom: 25px;       /* Distancia desde abajo */
-    right: 25px;        /* Distancia desde la derecha */
-    z-index: 9999;      /* Para que siempre esté por encima de todo */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
 }
 
 .whatsapp-button {
-    background-color: #25d366; /* El verde de WhatsApp */
+    background-color: #25d366;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;        /* Tamaño del círculo */
-    height: 60px;
-    border-radius: 50%; /* Lo hace redondo */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para que resalte */
-    transition: transform 0.3s ease; /* Animación suave */
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1); /* Crece un poquito cuando pasas el mouse */
-    background-color: #128c7e; /* Un verde más oscuro */
-}
-
-/* Ajuste para que en el celular no sea tan grande */
-@media (max-width: 768px) {
-    .whatsapp-container {
-        bottom: 15px;
-        right: 15px;
-    }
-    .whatsapp-button {
-        width: 50px;
-        height: 50px;
-    }
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
