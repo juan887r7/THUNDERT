@@ -120,7 +120,7 @@ body{
 
     .link-header a {
         /* En celular un poco más grandes que antes pero que quepan */
-        font-size: 30px !important; 
+        font-size: 14px !important; 
         letter-spacing: 1px !important;
     }
    
