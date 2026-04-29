@@ -505,3 +505,30 @@ ul li.link-header a{
 .categoria-card:hover .categoria-info h2::after {
     width: 60px;
 }
+/* EFECTO SCROLL LATERAL PARA CELULARES */
+@media (max-width: 768px) {
+    .contenedor-categorias {
+        display: flex !important; /* Cambiamos de rejilla a fila */
+        overflow-x: auto !important; /* Permite deslizar a los lados */
+        scroll-snap-type: x mandatory; /* Hace que la imagen se "ajuste" al centro al soltar */
+        gap: 10px;
+        padding: 10px;
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+    }
+
+    .contenedor-categorias::-webkit-scrollbar {
+        display: none; /* Oculta la barra de scroll para que se vea más limpio */
+    }
+
+    .categoria-card {
+        flex: 0 0 85%; /* Cada carta ocupa el 85% del ancho para que se vea un poquito de la siguiente */
+        height: 60vh; /* Un poco más bajitas para que no tapen toda la pantalla */
+        scroll-snap-align: center; /* Centra la imagen al deslizar */
+        border-radius: 5px; /* Opcional: un toque sutil */
+    }
+
+    .categoria-info h2 {
+        font-size: 14px; /* Texto un poco más pequeño para celular */
+        letter-spacing: 4px;
+    }
+}
