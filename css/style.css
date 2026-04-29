@@ -138,7 +138,7 @@ body{
 
 .portada {
     background-image: url(../img/banner.jpeg);
-    background-attachment: fixed;
+    background-attachment: scroll; /* Cambiado de fixed a scroll para mejor compatibilidad en móvil */
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -156,6 +156,7 @@ body{
     color: #ffffff;
     max-width: 800px;
     z-index: 2;
+    padding: 0 20px; /* Margen para que el texto no toque los bordes del cel */
 }
 
 .header__texto h2 {
@@ -164,10 +165,9 @@ body{
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 900;
-    text-shadow: 2px 4px 10px rgba(0.0.0.8);
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
 }
 
-/* El adorno o borde que mencionaste */
 .border-titler {
     height: 3px;
     width: 120px;
@@ -178,12 +178,32 @@ body{
 .descrption-titler {
     font-size: 2.2rem;
     line-height: 1.5;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin: 0;
     font-weight: normal;
     letter-spacing: 2px;
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA CELULAR --- */
+@media (max-width: 768px) {
+    .portada {
+        background-attachment: scroll; /* Obligatorio para celulares */
+        height: 80vh; /* Un poco más corta para que el usuario sepa que hay contenido abajo */
+    }
+
+    .header__texto h2 {
+        font-size: 3rem; /* Reducido de 7rem a 3rem para que quepa en la pantalla */
+        letter-spacing: 3px;
+    }
+
+    .descrption-titler {
+        font-size: 1.2rem; /* Reducido de 2.2rem a 1.2rem */
+        letter-spacing: 1px;
+    }
+
+    .border-titler {
+        width: 60px; /* Línea más corta acorde al texto */
+        margin: 15px auto;
+    }
 }
 
 /* =======================================================
