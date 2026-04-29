@@ -292,56 +292,57 @@ ul li.link-header a{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
+
+
 /* =======================================================
-    SECCIÓN LO ÚLTIMO (CARRUSEL Y PRODUCTOS)
+    SECCIÓN LO ÚLTIMO - CARRUSEL THUNDERT
    ======================================================= */
 
-/* Título imponente */
+/* Título imponente y centrado */
 .titulo-seccion-grande {
-    font-size: 5rem; /* Tamaño masivo */
+    font-size: 5.5rem;
     font-weight: 900;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 12px; /* Espaciado premium */
+    letter-spacing: 12px;
     margin: 50px 0;
     color: #000;
 }
 
-/* Contenedor del Carrusel */
+/* Contenedor que agrupa flechas y productos */
 .carrusel-wrapper {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 60px; /* Espacio para que las flechas no tapen el contenido */
 }
 
-/* Contenedor de las tarjetas (Se desliza) */
+/* El "túnel" por donde pasan las camisas */
 .bg-gray.seccion-ultimo {
     display: flex;
-    justify-content: flex-start; /* Alinea al inicio para el carrusel */
+    flex-direction: row;   /* Fuerza la fila */
+    flex-wrap: nowrap;     /* OBLIGATORIO: Evita que las camisas se vayan hacia abajo */
+    justify-content: flex-start;
     align-items: stretch;
     gap: 25px;
     padding: 40px 10px;
     width: 100%;
-    overflow-x: auto; /* Permite scroll manual en móvil */
+    overflow-x: hidden;    /* Esconde la barra de scroll */
     scroll-behavior: smooth;
+    background-color: #f3f3f3; /* Color de fondo gris claro */
 }
 
-/* Ocultar barra de scroll para estética limpia */
-.bg-gray.seccion-ultimo::-webkit-scrollbar {
-    display: none;
-}
-
-/* Tarjeta de Producto Individual */
+/* Tarjeta de cada Camisa */
 .ultimo-ind {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    min-width: 320px; /* Ancho fijo para que entren varias en fila */
+    min-width: 320px;      /* Ancho fijo para cada una de las 20 camisas */
     max-width: 320px;
+    flex-shrink: 0;        /* OBLIGATORIO: Evita que se aplasten las tarjetas */
     padding: 20px;
     text-align: center;
     display: flex;
@@ -349,13 +350,14 @@ ul li.link-header a{
     justify-content: space-between;
 }
 
-/* Imagen del Producto */
+/* La Imagen de la Camisa */
 .producto {
     width: 100%;
-    height: 250px; /* Altura fija para uniformidad */
-    object-fit: contain; 
+    height: 300px;         /* Altura fija para que todas se vean iguales */
+    object-fit: cover;     /* Ajusta la imagen sin deformarla */
     border-radius: 8px;
     margin-bottom: 15px;
+    display: block;
 }
 
 /* Etiquetas de Descuento */
@@ -370,7 +372,7 @@ ul li.link-header a{
     text-transform: uppercase;
 }
 
-/* Nombre del producto */
+/* Texto del Nombre */
 .ultimo-ind span:not(.txt-base-carousel-secction--discount) {
     display: block;
     font-size: 1.4rem;
@@ -380,7 +382,7 @@ ul li.link-header a{
     margin: 10px 0;
 }
 
-/* Precio */
+/* El Precio */
 .txt-base-carousel-section-price {
     font-size: 1.8rem;
     font-weight: 800;
@@ -388,7 +390,7 @@ ul li.link-header a{
     margin-bottom: 15px;
 }
 
-/* Botones de Flechas (Navegación) */
+/* --- BOTONES DE FLECHAS --- */
 .flecha-carrusel {
     position: absolute;
     top: 50%;
@@ -396,27 +398,32 @@ ul li.link-header a{
     background: #000;
     color: #fff;
     border: none;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    transition: 0.3s;
+    font-size: 1.8rem;
+    transition: 0.3s ease;
 }
 
-.flecha-carrusel.prev { left: -10px; }
-.flecha-carrusel.next { right: -10px; }
+.flecha-carrusel.prev {
+    left: 5px; /* Pegada al borde izquierdo */
+}
+
+.flecha-carrusel.next {
+    right: 5px; /* Pegada al borde derecho */
+}
 
 .flecha-carrusel:hover {
     background: #333;
-    scale: 1.1;
+    transform: translateY(-50%) scale(1.1);
 }
 
-/* Botón de Agregar */
+/* Botón AGREGAR */
 .boton--primario {
     background-color: #000000;
     color: #ffffff;
@@ -431,5 +438,70 @@ ul li.link-header a{
 }
 
 .boton--primario:hover {
-    background-color: #333333;
+    background-color: #444;
+}
+
+/*categorias*/
+
+.contenedor-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5px;
+    padding: 5px;
+    background-color: #000;
+}
+
+.categoria-card {
+    position: relative;
+    height: 75vh; 
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #1a1a1a; /* Fondo por si la imagen tarda en cargar */
+}
+
+.categoria-card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+    transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+}
+
+.categoria-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.categoria-info {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.categoria-info h2 {
+    color: white;
+    font-size: 16px; /* Tamaño un poco más sutil */
+    letter-spacing: 7px; /* Espaciado Monastery total */
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.categoria-info h2::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: #fff;
+    margin: 15px auto;
+    transition: width 0.4s ease;
+}
+
+.categoria-card:hover .categoria-info h2::after {
+    width: 60px;
 }
