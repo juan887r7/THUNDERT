@@ -9,10 +9,36 @@ html{
     box-sizing: inherit;
 }
 
-body{
-    margin: 0px;
+/* Esto pone el fondo negro en TODA la web */
+body {
+    background-color: #000000 !important;
+    color: #ffffff !important; /* Pone todas las letras blancas por defecto */
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif; /* O la fuente que estés usando */
 }
 
+/* Ajuste para que los títulos y precios se vean en blanco */
+h1, h2, h3, span, div {
+    color: #ffffff;
+}
+
+/* Ajuste para el carrusel y las cajas de productos */
+.bg-gray, .seccion-ultimo {
+    background-color: #0a0a0a !important; /* Un gris casi negro para dar profundidad */
+    border-radius: 10px;
+}
+
+.ultimo-ind {
+    background-color: #111111; /* Color de la tarjetita del producto */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #222; /* Un borde sutil para que se note la caja */
+}
+
+.txt-base-carousel-section-price {
+    color: #ffffff !important;
+}
   /*header*/
 
 /* --- NUEVO HEADER THUNDERT MODERNO --- */
