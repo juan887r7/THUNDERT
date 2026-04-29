@@ -27,11 +27,21 @@ body{
 }
 
 #header {
-    height: 80px;
+    /* Le damos más altura para que el logo no esté apretado */
+    height: 120px; 
     display: flex;
     align-items: center;
+    padding-top: 15px; /* Esto lo empuja un poco hacia abajo */
+    padding-bottom: 10px;
 }
 
+#site-logo img {
+    /* Lo anchamos un poco más como pediste */
+    width: 140px; 
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Lo asegura en el centro */
+}
 .wrapper {
     width: 95%; /* Más espacio en los bordes */
     margin: auto;
@@ -40,11 +50,6 @@ body{
     align-items: center;
 }
 
-#site-logo img {
-    width: 100px; /* Tamaño más controlado */
-    height: auto;
-    display: block;
-}
 
 .nav-links {
     display: flex;
@@ -70,9 +75,13 @@ body{
 
 /* --- ESTO ARREGLA TU FOTO EN EL CELULAR --- */
 @media (max-width: 768px) {
-    #header {
-        height: auto;
-        padding: 15px 0;
+   #header {
+        height: 100px; /* Un poco más alto que antes */
+        padding-top: 10px;
+    }
+
+    #site-logo img {
+        width: 110px; /* Un tamaño que se vea imponente pero no estorbe */
     }
 
     .wrapper {
@@ -80,10 +89,7 @@ body{
         gap: 15px;
     }
 
-    #site-logo {
-        float: none; /* Quitamos el float que daña el diseño */
-    }
-
+   
     .nav-links {
         float: none; /* Quitamos el float */
         justify-content: center;
