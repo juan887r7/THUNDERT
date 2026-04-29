@@ -186,22 +186,26 @@ body{
 /* --- AJUSTES ESPECÍFICOS PARA CELULAR --- */
 @media (max-width: 768px) {
     .portada {
-        background-attachment: scroll; /* Obligatorio para celulares */
-        height: 80vh; /* Un poco más corta para que el usuario sepa que hay contenido abajo */
+        background-attachment: scroll; 
+        /* ESTA LÍNEA ES LA QUE HACE QUE EL LOGO NO SE CORTE */
+        background-size: 100% auto !important; 
+        
+        background-position: center center;
+        height: 50vh; /* Ajustamos la altura para que no quede espacio vacío */
     }
 
     .header__texto h2 {
-        font-size: 3rem; /* Reducido de 7rem a 3rem para que quepa en la pantalla */
+        font-size: 2.5rem; /* Lo bajé un poquito más para asegurar que no tape tu logo de fondo */
         letter-spacing: 3px;
     }
 
     .descrption-titler {
-        font-size: 1.2rem; /* Reducido de 2.2rem a 1.2rem */
+        font-size: 1rem;
         letter-spacing: 1px;
     }
 
     .border-titler {
-        width: 60px; /* Línea más corta acorde al texto */
+        width: 60px;
         margin: 15px auto;
     }
 }
