@@ -186,29 +186,38 @@ body{
 /* --- AJUSTES ESPECÍFICOS PARA CELULAR --- */
 @media (max-width: 768px) {
     .portada {
-        background-attachment: scroll; 
-        /* ESTA LÍNEA ES LA QUE HACE QUE EL LOGO NO SE CORTE */
-        background-size: 100% auto !important; 
+        /* 1. Eliminamos cualquier color gris de fondo */
+        background-color: #000 !important; 
         
-        background-position: center center;
-        height: 50vh; /* Ajustamos la altura para que no quede espacio vacío */
+        /* 2. Ajustamos la imagen para que toque los bordes laterales */
+        background-image: url(../img/banner.jpeg);
+        background-size: contain !important; /* Muestra la imagen completa sin recortar */
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+
+        /* 3. El truco maestro: Altura proporcional */
+        /* En lugar de 80vh o 100vh que dejan huecos, usamos una altura baja */
+        height: 220px !important; 
+        
+        /* 4. Quitamos márgenes que puedan estar empujando el contenido */
+        margin: 0 !important;
+        padding: 0 !important;
+        
+        /* 5. Si hay un degradado o overlay gris, lo quitamos */
+        background-blend-mode: normal !important;
     }
 
-    .header__texto h2 {
-        font-size: 2.5rem; /* Lo bajé un poquito más para asegurar que no tape tu logo de fondo */
-        letter-spacing: 3px;
-    }
-
-    .descrption-titler {
-        font-size: 1rem;
-        letter-spacing: 1px;
-    }
-
-    .border-titler {
-        width: 60px;
-        margin: 15px auto;
+    /* Si el espacio gris es arriba (por el menú), ajustamos el margen */
+    .header {
+        margin-bottom: 0 !important;
     }
 }
+
+    /* Ocultamos el texto que está encima para que no tape tu logo de fondo */
+    .header__texto {
+        display: none !important;
+    }
+
 
 /* =======================================================
     ALINEACIÓN DEL HEADER (LOGO IZQ / MENÚ DER)
