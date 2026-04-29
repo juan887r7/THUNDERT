@@ -67,43 +67,64 @@ body{
 .link-header a {
     text-decoration: none;
     color: #000000;
-    font-size: 11px; /* Fuente pequeña y elegante */
-    letter-spacing: 2px; /* Espaciado premium */
+    /* Subimos el tamaño para que destaquen */
+    font-size: 16px !important; 
+    /* Un poco de espacio entre letras para que se vea premium */
+    letter-spacing: 2px; 
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 800; /* Más negrita para que tengan fuerza */
 }
 
-/* --- ESTO ARREGLA TU FOTO EN EL CELULAR --- */
+/* --- AJUSTE PARA LOGO MÁS LARGO EN CELULAR --- */
 @media (max-width: 768px) {
-   #header {
-        height: 100px; /* Un poco más alto que antes */
-        padding-top: 10px;
-    }
-
-    #site-logo img {
-        width: 110px; /* Un tamaño que se vea imponente pero no estorbe */
+    
+    #headerTHUNDERT.fixed-header {
+        height: auto !important;
+        padding: 10px 0 !important; /* Un poquito más de aire arriba/abajo */
     }
 
     .wrapper {
-        flex-direction: column; /* Pone el logo arriba y el menú abajo */
-        gap: 15px;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding-left: 20px !important;
     }
 
-   
+    #site-logo {
+        width: 100% !important;
+        justify-content: flex-start !important;
+        margin-bottom: 20px !important; /* Más espacio antes de los links */
+    }
+
+    #site-logo img {
+        /* AQUÍ LO HACEMOS MÁS LARGO */
+        width: 250px !important; /* Súbele a 220px o 250px si lo quieres todavía más largo */
+        max-width: 90% !important; /* Para que no toque el borde derecho */
+        height: auto !important;
+        margin: 0 !important;
+        display: block !important;
+        
+        /* Opcional: Si quieres que las letras se vean un pelín más nítidas al agrandar */
+        image-rendering: -webkit-optimize-contrast;
+    }
+
     .nav-links {
-        float: none; /* Quitamos el float */
-        justify-content: center;
+        padding-left: 0 !important; /* Alineamos los links con el inicio del logo largo */
     }
 
     .d-flex {
-        gap: 15px; /* Ajuste de espacio en móvil */
+        gap: 25px !important; /* Más separación entre DROPS, ZAPATILLAS, etc. */
+        justify-content: flex-start !important;
+        width: 100% !important;
+        margin-top: 10px !important;
     }
 
-    .link-header {
-        margin: 0;
+    .link-header a {
+        /* En celular un poco más grandes que antes pero que quepan */
+        font-size: 30px !important; 
+        letter-spacing: 1px !important;
     }
+   
 }
-
 /*footer*/
 
 .footer-basic{
