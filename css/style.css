@@ -667,10 +667,8 @@ h1, h2, h3, span, div {
     border-radius: 8px;
 }
 
-.nombre-pro, .precio {
-    color: black !important;
-    font-weight: 900;
-}
+
+
 
 /* Título de la Marca Centrado y Estilizado */
 
@@ -713,25 +711,7 @@ h1, h2, h3, span, div {
 
 /* 3. La tarjeta blanca del zapato */
 
-.ultimo-ind img {
-    width: 100% !important;
-    border-radius: 10px !important;
-}
 
-.nombre-pro {
-    color: black !important;
-    font-weight: 900 !important;
-    display: block !important;
-    margin-top: 15px !important;
-    font-size: 1.1rem !important;
-}
-
-.precio {
-    color: black !important;
-    font-weight: 900 !important;
-    margin: 10px 0 !important;
-    font-size: 1.3rem !important;
-}
 
 /* 4. Ajustes para que en Computadora se vea ordenado */
 @media (min-width: 768px) {
@@ -772,30 +752,7 @@ h1, h2, h3, span, div {
     margin: 10px auto 0 auto;
 }
 
-/* 2. Contenedor del Scroll (LO MÁS IMPORTANTE) */
-.contenedor-horizontal {
-    display: flex !important;
-    flex-wrap: nowrap !important; /* Prohíbe que los zapatos se vayan para abajo */
-    flex-direction: row !important;
-    overflow-x: scroll !important; /* FUERZA la barra de scroll */
-    width: 100vw !important; /* Usa todo el ancho de la pantalla */
-    -webkit-overflow-scrolling: touch !important;
-    gap: 20px !important;
-    background-color: rgba(255, 0, 0, 0.1) !important; /* Se verá un fondo rojizo si funciona */
-    cursor: pointer;
-    user-select: none;
-}
 
-/* Esto hace que aparezca una barrita sutil abajo de los zapatos */
-.contenedor-horizontal::-webkit-scrollbar {
-    display: block !important; /* La volvemos a mostrar */
-    height: 8px !important;    /* Grosor de la barra */
-}
-
-.contenedor-horizontal::-webkit-scrollbar-thumb {
-    background: #ffffff !important; /* Color de la barrita (blanca como tu estilo) */
-    border-radius: 10px !important;
-}
 
 .contenedor-horizontal::-webkit-scrollbar-track {
     background: #333333 !important; /* Color del fondo de la barra */
@@ -809,19 +766,7 @@ h1, h2, h3, span, div {
     padding: 50px 0 !important;
 }
 
-/* 3. Tarjeta del Zapato */
-.ultimo-ind {
-    flex: 0 0 300px !important; /* Tamaño fijo en PC */
-    min-width: 300px !important; /* ESTO ES LO QUE ACTIVA EL SCROLL */
-    background-color: white !important;
-    border-radius: 20px !important;
-    padding: 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    scroll-snap-align: center !important;
-}
+
 
 /* Imágenes de los zapatos */
 .ultimo-ind img {
@@ -830,14 +775,7 @@ h1, h2, h3, span, div {
     border-radius: 10px !important;
 }
 
-/* Textos dentro de la tarjeta blanca */
-.ultimo-ind .nombre-pro, 
-.ultimo-ind .precio {
-    color: black !important;
-    font-weight: 900 !important;
-    margin-top: 10px !important;
-    font-size: 1.4rem !important;
-}
+
 
 /* Ajuste para que en celulares se vea el 85% */
 @media (max-width: 768px) {
@@ -845,4 +783,129 @@ h1, h2, h3, span, div {
         flex: 0 0 85% !important;
         min-width: 85% !important;
     }
+}
+
+/* 1. EL CONTENEDOR (Lo que permite el movimiento) */
+.contenedor-horizontal {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Obliga a los zapatos a estar en una sola fila */
+    overflow-x: auto !important;  /* Activa el scroll lateral */
+    width: 100% !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    -webkit-overflow-scrolling: touch !important; /* Movimiento suave en celulares */
+    scroll-snap-type: x mandatory !important;    /* Ajuste automático al deslizar */
+}
+
+/* 2. LA BARRA BLANCA (Visible en PC, oculta en celular para que sea limpio) */
+.contenedor-horizontal::-webkit-scrollbar {
+    height: 6px !important;
+    display: block !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-thumb {
+    background: white !important;
+    border-radius: 10px !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-track {
+    background: #333333 !important; /* Color del fondo de la barra */
+}
+
+
+@media (max-width: 768px) {
+    .contenedor-horizontal::-webkit-scrollbar {
+        display: none !important; /* En celular no hace falta ver la barra */
+    }
+}
+
+/* 3. LA TARJETA (El tamaño de cada zapato) */
+.ultimo-ind {
+    flex: 0 0 300px !important; /* Tamaño fijo en PC */
+    min-width: 300px !important; 
+    background-color: white !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    scroll-snap-align: center !important; /* Se alinea al centro al soltar el dedo */
+}
+
+@media (max-width: 768px) {
+    .ultimo-ind {
+        flex: 0 0 85% !important; /* En celular ocupa casi toda la pantalla */
+        min-width: 85% !important;
+    }
+}
+
+/* ESTILO PARA DROPS Y ZAPATILLAS */
+.nombre-pro {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important; /* Grosor máximo */
+    font-size: 1.8rem !important;
+    text-transform: uppercase !important;
+    color: #000000 !important;
+    display: block !important;
+    margin-top: 15px !important;
+    letter-spacing: -0.5px !important;
+}
+
+.precio {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 2.2rem !important;
+    color: #000000 !important;
+    margin: 10px 0 !important;
+    display: block !important;
+}
+
+/* El botón para que también tenga la misma letra */
+.boton-comprar-wa {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+}
+
+/* --- ESTILO PARA LAS IMÁGENES DE FRAGANCIAS --- */
+
+.ultimo-ind .producto {
+    width: 100% !important;
+    height: 300px !important; /* Altura fija para que todas las fotos de perfumes midan lo mismo */
+    object-fit: contain !important; /* Esto evita que el frasco del perfume se estire o se vea flaco */
+    background-color: #f9f9f9 !important; /* Un fondo gris muy claro para que el vidrio resalte */
+    border-radius: 10px !important;
+    padding: 15px !important; /* Espacio para que el perfume no toque los bordes de la foto */
+    transition: transform 0.3s ease !important;
+}
+
+/* Efecto al pasar el mouse por encima del perfume */
+.ultimo-ind:hover .producto {
+    transform: scale(1.05) !important; /* Se agranda un poquito suavemente */
+}
+
+}
+/* Opcional: Si quieres que el símbolo '$' se vea un poco más pequeño que el número */
+.txt-base-carousel-section-price::first-letter {
+    font-size: 1.6rem;
+    vertical-align: top;
+}
+.ultimo-ind .producto {
+    padding: 20px !important; /* Crea espacio alrededor del frasco */
+    background-color: #fcfcfc !important; /* Fondo casi blanco muy limpio */
+    object-fit: contain !important;
+}
+
+/* Estilo definitivo para el precio de fragancias */
+.txt-base-carousel-section-price {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important; /* Grosor máximo para resaltar */
+    font-size: 2.2rem !important; /* Tamaño grande y claro */
+    color: #000000 !important;
+    text-align: center !important;
+    display: block !important;
+    line-height: 1 !important; /* Esto elimina el efecto del '1' volando */
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
 }
