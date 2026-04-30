@@ -635,3 +635,24 @@ h1, h2, h3, span, div {
     font-size: 14px;
     border-radius: 4px;
 }
+
+/* Esto limpia cualquier residuo que empuje el título a los lados */
+.content-fragancias {
+    padding-top: 160px !important; /* Espacio exacto para que el header no lo tape */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    background-color: #000 !important;
+}
+
+.titulo-principal {
+    color: #fff !important;
+    font-size: 3.5rem !important;
+    letter-spacing: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+    margin: 0 auto 50px auto !important; /* Centrado horizontal automático */
+    text-align: center !important;
+    width: 100% !important;
+}
