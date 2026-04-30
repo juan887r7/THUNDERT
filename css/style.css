@@ -362,6 +362,30 @@ h1, h2, h3, span, div {
     }
 }
 
+.contenedor-horizontal {
+    display: flex !important; /* Pone las tarjetas una al lado de la otra */
+    overflow-x: auto !important; /* Permite el scroll lateral */
+    scroll-snap-type: x mandatory; /* Hace que las tarjetas se "claven" al deslizar */
+    gap: 20px;
+    padding: 20px;
+    -webkit-overflow-scrolling: touch; /* Suavidad en iPhone */
+}
+
+.contenedor-horizontal::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll para que se vea más limpio */
+}
+
+.ultimo-ind {
+    flex: 0 0 85%; /* En móvil, la tarjeta ocupa el 85% del ancho para que se vea la siguiente a un lado */
+    scroll-snap-align: center; /* Centra la tarjeta al deslizar */
+}
+
+@media (min-width: 768px) {
+    .ultimo-ind {
+        flex: 0 0 300px; /* En PC, las tarjetas tienen un tamaño fijo */
+    }
+}
+
 /* =======================================================
     3. WHATSAPP FLOTANTE (Abajo a la derecha)
    ======================================================= */
