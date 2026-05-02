@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMBRE | THUNDERT</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=2.2">
+    <style>
+        /* Estilos específicos para la sección de productos */
+        body {
+            background-color: #000; /* Fondo negro como en fragancias */
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tarjeta-producto {
+            background-color: #111; /* Un negro ligeramente más claro para la tarjeta */
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.4s ease;
+            border: 1px solid #222;
+        }
+
+        .tarjeta-producto:hover {
+            transform: translateY(-10px);
+            border-color: #444;
+        }
+
+        .img-producto {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nombre-producto {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .precio-producto {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .boton-comprar {
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .boton-comprar:hover {
+            background-color: #ccc;
+        }
+
+        .titulo-pagina {
+            text-align: center;
+            padding: 50px 0 20px 0;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Igual al index) -->
+    <header id="header" style="background: rgba(0,0,0,0.9); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 20px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+            <a href="index.html"><img src="img/logo (1).svg" alt="THUNDERT" style="width: 150px;"></a>
+            <nav>
+                <a href="sneakers.html" style="color: white; text-decoration: none; margin-left: 20px; font-weight: bold;">ZAPATILLAS</a>
+                <a href="fragancias.html" style="color: white; text-decoration: none; margin-left: 20px; font-weight: bold;">FRAGANCIAS</a>
+            </nav>
+        </div>
+    </header>
+
+    <div style="margin-top: 100px;">
+        <h1 class="titulo-pagina">HOMBRE</h1>
+
+        <main class="contenedor-productos">
+            
+            <!-- Producto 1 -->
+            <div class="tarjeta-producto">
+                <img src="img/buso1.png" alt="Hoodie Undergold" class="img-producto">
+                <span class="nombre-producto">HOODIE UNDERGOLD NEGRO</span>
+                <span class="precio-producto">90.000 $</span>
+                <a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Hoodie%20Undergold" target="_blank" class="boton-comprar">COMPRAR</a>
+            </div>
+
+            <!-- Producto 2 (Ejemplo de Sneaker) -->
+            <div class="tarjeta-producto">
+                <img src="img/conjunto.png" alt="Sneaker" class="img-producto">
+                <span class="nombre-producto">SNEAKER STREETWEAR</span>
+                <span class="precio-producto">350.000 $</span>
+                <a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Sneaker%20Streetwear" target="_blank" class="boton-comprar">COMPRAR</a>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer Simple -->
+    <footer style="text-align: center; padding: 60px 20px; background: #000; border-top: 1px solid #222; margin-top: 50px;">
+        <p style="color: gray; font-size: 14px;">THUNDERT © 2026 | STREETWEAR IDENTITY</p>
+    </footer>
+
+</body>
+</html>

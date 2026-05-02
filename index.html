@@ -6,36 +6,38 @@
     <meta name="description" content="Thundert | Streetwear Identity">
     <title>THUNDERT</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=1.8">
+    <!-- Se actualizó la versión del CSS para forzar la lectura de los nuevos cambios -->
+    <link rel="stylesheet" href="css/style.css?v=2.0">
     <style>
-        /* CSS necesario para que las letras queden sobre las fotos de categorías */
+        /* Estilos internos para asegurar la superposición del texto */
         .contenedor-categorias {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column; /* Apila las categorías verticalmente */
             width: 100%;
         }
-        .categoria-card {
+        .enlace-categoria {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+        }
+        .categoria-item {
             position: relative;
-            flex: 1;
-            min-width: 300px;
+            width: 100%;
             overflow: hidden;
         }
-        .categoria-card img {
+        .categoria-item img {
             width: 100%;
-            height: 100%;
+            height: auto;
             display: block;
             object-fit: cover;
         }
-        .categoria-info {
+        .texto-superpuesto {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             width: 100%;
-        }
-        .categoria-info h2 {
             color: white;
             font-size: 3.5rem;
             font-weight: 900;
@@ -43,6 +45,14 @@
             text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
             margin: 0;
             letter-spacing: 2px;
+            font-family: Arial, sans-serif;
+            pointer-events: none;
+        }
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .texto-superpuesto {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -64,7 +74,6 @@
                     <div class="nav-links">
                         <nav>
                             <ul class="d-flex">
-                              <li class="link-header"><a href="drops.html">ROPA</a></li>
                               <li class="link-header"><a href="sneakers.html">ZAPATILLAS</a></li>
                               <li class="link-header"><a href="fragancias.html">FRAGANCIAS</a></li> 
                             </ul>
@@ -76,65 +85,73 @@
 
         <div class="portada"></div>
 
-        <main class="contenedor-principal">
-            <h1 class="titulo-seccion-grande">LO ÚLTIMO</h1>
-            <div class="carrusel-wrapper">
-                <button class="flecha-carrusel prev" onclick="moverCarrusel(-345)"> < </button>
-                <div class="bg-gray seccion-ultimo" id="contenedor-carrusel">
-                    
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
-                    <div class="ultimo-ind"><img class="producto" src="img/buso1.png"><span>BUSO UNDERGOLD NEGRO</span><div class="txt-base-carousel-section-price">$ 90.000</div><a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa">COMPRAR</a></div>
+<main class="contenedor-principal">
+    <h1 class="titulo-seccion-grande">LO ÚLTIMO</h1>
+    <div class="carrusel-wrapper">
+        <button class="flecha-carrusel prev" onclick="moverCarrusel(-345)"> < </button>
+        <div class="bg-gray seccion-ultimo" id="contenedor-carrusel">
 
+            <!-- Tarjeta de producto mejorada -->
+            <div class="ultimo-ind" style="background-color: white; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #ddd;">
+                <img class="producto" src="img/buso1.png" style="width: 100%; border-radius: 10px; height: 280px; object-fit: contain; margin-bottom: 10px;">
+                
+                <!-- NOMBRE: Ahora con Arial Black y más grande -->
+                <span style="font-family: 'Arial Black', Gadget, sans-serif !important; font-weight: 900 !important; color: black !important; text-transform: uppercase !important; display: block; margin-top: 15px; font-size: 1.5rem !important; letter-spacing: -1px !important; line-height: 1.1;">
+                    BUSO UNDERGOLD NEGRO
+                </span>
+
+                <!-- PRECIO: Bien sólido -->
+                <div style="display: block !important; text-align: center !important; margin: 15px 0 !important;">
+                    <span style="font-family: 'Arial Black', sans-serif !important; font-weight: 900 !important; font-size: 2.2rem !important; color: black !important; line-height: 1 !important; display: inline-block !important; vertical-align: middle !important; letter-spacing: -1px;">
+                        90.000 $
+                    </span>
                 </div>
-                <button class="flecha-carrusel next" onclick="moverCarrusel(345)"> > </button>
-            </div>
-        </main>
 
-        <section class="contenedor-categorias">
-            <div class="categoria-card">
-                <img src="img/portada hombre.png" alt="Hombre">
-                <div class="categoria-info"><h2>HOMBRE</h2></div>
+                <a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa" style="display: inline-block; background-color: black; color: white; text-decoration: none; padding: 12px 35px; border-radius: 5px; font-weight: 900; text-transform: uppercase; margin-top: 10px; font-family: 'Arial Black', sans-serif;">
+                    COMPRAR
+                </a>
             </div>
-            <div class="categoria-card">
-                <img src="img/Accesorios.jpg" alt="Accesorios">
-                <div class="categoria-info"><h2>ACCESORIOS</h2></div>
-            </div>
-            <div class="categoria-card">
-                <img src="img/mujer.png" alt="Mujer">
-                <div class="categoria-info"><h2>MUJER</h2></div>
-            </div>
-        </section>
+
+        </div>
+        <button class="flecha-carrusel next" onclick="moverCarrusel(345)"> > </button>
+    </div>
+</main>
+
+        <!-- SECCIÓN DE CATEGORÍAS CORREGIDA -->
+        <div class="seccion-categorias">
+             <!-- Bloque Hombre -->
+            <a href="hombre.html" class="enlace-categoria">
+                <div class="categoria-item">
+                    <img src="img/portada hombre.png" alt="Hombre">
+                    <div class="texto-superpuesto">HOMBRE</div>
+                </div>
+            </a>
+
+            <!-- Bloque Accesorios -->
+            <a href="accesorios.html" class="enlace-categoria">
+                <div class="categoria-item">
+                    <img src="img/accesorios.png" alt="Accesorios">
+                    <div class="texto-superpuesto">ACCESORIOS</div>
+                </div>
+            </a>
+
+             <!-- Bloque Mujer -->
+            <a href="mujer.html" class="enlace-categoria">
+                <div class="categoria-item">
+                    <img src="img/mujer.png" alt="Mujer">
+                    <div class="texto-superpuesto">MUJER</div>
+                </div>
+            </a>
+        </div>
 
         <div style="text-align: center; padding: 40px 20px; background: #000;">
             <p style="color: white; margin-bottom: 20px;">SÍGUENOS EN NUESTRAS REDES</p>
             <div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
-                
                 <a href="https://www.instagram.com/thunder_shoop1/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" width="40" alt="Instagram">
                 </a>
-                
-                <a href="https://chat.whatsapp.com/KRvYQp1eZqj1hCpYJzZqOm" target="_blank" style="text-decoration: none;">
+                <a href="https://chat.whatsapp.com/KRvYQp1eZqj1hCpYJzZqOm" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="40" alt="Grupo Thundert">
-                    <span style="display: block; color: #25D366; font-size: 10px; font-weight: bold; margin-top: 5px;"></span>
                 </a>
             </div>
             <p style="color: gray; font-size: 12px; margin-top: 30px;">THUNDERT © 2026</p>

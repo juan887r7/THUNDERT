@@ -391,14 +391,33 @@ h1, h2, h3, span, div {
    ======================================================= */
 
 /* Título imponente y centrado */
-.titulo-seccion-grande {
-    font-size: 5.5rem;
-    font-weight: 900;
+/* --- TÍTULOS IMPONENTES SOBRE FONDO NEGRO --- */
+.titulo-seccion-grande, .titulo-seccion {
+    color: #ffffff !important; /* Blanco puro para resaltar */
+    font-family: 'Arial Black', Gadget, sans-serif !important; 
+    font-weight: 900 !important;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 12px;
-    margin: 50px 0;
-    color: #000;
+    
+    /* Ajuste de escala: imponente pero equilibrado */
+    font-size: 4.5rem; 
+    letter-spacing: 8px; /* Un poco menos de 12px para que no se pierda la lectura */
+    margin: 60px 0;
+    
+    /* Sombra sutil para dar profundidad */
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    display: block;
+    width: 100%;
+}
+
+/* Ajuste para que el nombre del producto sea idéntico al de los zapatos */
+.nombre-pro, .nombre-producto {
+    font-family: 'Arial Black', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: -1px !important; /* Letras juntas como en FUERZA AÉREA */
+    color: #000 !important; /* Negro porque la tarjeta del producto es blanca */
+    text-transform: uppercase;
 }
 
 /* Contenedor que agrupa flechas y productos */
@@ -940,3 +959,135 @@ h1, h2, h3, span, div {
     line-height: 1 !important; /* Evita que el precio se suba o se vea pequeño */
     letter-spacing: -1px !important; /* Junta un poco los números para el estilo moderno */
 }
+
+/* --- CONFIGURACIÓN TRES COLUMNAS IGUALES --- */
+.seccion-categorias {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    padding: 20px; 
+    background-color: #000; /* Cámbialo a negro si quieres el look de lujo */
+    width: 100%;
+}
+
+.enlace-categoria {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 600px; /* Esta es la altura premium que elegiste */
+}
+
+.categoria-item {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.categoria-item img {
+    /* AGREGAMOS !IMPORTANT A TODO PARA QUE NO SE DAÑE */
+    width: 100% !important;
+    height: 100% !important; /* Esto obliga a la foto de accesorios a estirarse hasta los 600px */
+    object-fit: cover !important; /* Esto evita que se vea estirada, la recorta perfecto */
+    display: block !important;
+    filter: brightness(0.9); /* Un toque oscuro para que el texto resalte */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Efecto Zoom al pasar el mouse (Estilo Monastery) */
+.enlace-categoria:hover img {
+    transform: scale(1.1);
+}
+
+/* Efecto de "sobresalir" al pasar el puntero */
+.enlace-categoria:hover .categoria-item img {
+    transform: scale(1.05);
+}
+
+/* Texto sutil y elegante abajo */
+.texto-superpuesto {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .seccion-categorias {
+        grid-template-columns: 1fr; /* En móvil se ponen una sobre otra */
+        padding: 10px;
+    }
+    .enlace-categoria {
+        height: 500px;
+    }
+}
+
+    /* --- CORRECCIÓN DE POSICIÓN CATEGORÍAS --- */
+    .seccion-categorias {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+        gap: 10px; 
+        padding: 20px; 
+        background-color: #000 !important; /* Fondo negro total */
+        width: 100%;
+    }
+
+    .enlace-categoria {
+        text-decoration: none;
+        display: block;
+        position: relative !important; /* Jefe de la posición del texto */
+        overflow: hidden;
+        height: 600px; /* Altura fija para que el texto no se salga */
+        background-color: #000;
+    }
+
+    .categoria-item {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .categoria-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        display: block;
+        transition: transform 0.6s ease;
+    }
+
+    /* Texto SIEMPRE dentro de la foto */
+    .texto-superpuesto {
+        position: absolute !important;
+        bottom: 40px !important; 
+        left: 50% !important;   
+        transform: translateX(-50%) !important; /* Centrado perfecto */
+        width: auto !important;
+        text-align: center;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        z-index: 10;
+    }
+
+/* La línea debajo */
+.texto-superpuesto::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: white;
+    margin: 8px auto 0;
+}
+
