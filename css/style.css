@@ -1091,3 +1091,23 @@ h1, h2, h3, span, div {
     margin: 8px auto 0;
 }
 
+/* --- AJUSTES PARA CELULAR --- */
+@media (max-width: 768px) {
+    .seccion-categorias {
+        /* Pasamos de 3 columnas a 1 sola para que las fotos respiren */
+        grid-template-columns: 1fr !important; 
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .enlace-categoria {
+        /* Bajamos la altura a 300px o 400px para que no sean tan largas en el celu */
+        height: 350px !important; 
+    }
+
+    .seccion-categorias span {
+        /* Ajustamos el tamaño de la letra para que no ocupe toda la foto */
+        font-size: 1.4rem !important;
+        letter-spacing: 3px !important;
+    }
+}
