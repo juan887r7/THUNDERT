@@ -1020,68 +1020,57 @@ h1, h2, h3, span, div {
     z-index: 2;
 }
 
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-    .seccion-categorias {
-        grid-template-columns: 1fr; /* En móvil se ponen una sobre otra */
-        padding: 10px;
-    }
-    .enlace-categoria {
-        height: 500px;
-    }
+/* =====================
+   CATEGORÍAS - SCROLL HORIZONTAL EN MÓVIL
+   ===================== */
+.seccion-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background-color: #000;
+    width: 100%;
 }
 
-    /* --- CORRECCIÓN DE POSICIÓN CATEGORÍAS --- */
-    .seccion-categorias {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
-        gap: 10px; 
-        padding: 20px; 
-        background-color: #000 !important; /* Fondo negro total */
-        width: 100%;
-    }
+.enlace-categoria {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    background-color: #000;
+}
 
-    .enlace-categoria {
-        text-decoration: none;
-        display: block;
-        position: relative !important; /* Jefe de la posición del texto */
-        overflow: hidden;
-        height: 600px; /* Altura fija para que el texto no se salga */
-        background-color: #000;
-    }
+.categoria-item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
-    .categoria-item {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
+.categoria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
 
-    .categoria-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; 
-        display: block;
-        transition: transform 0.6s ease;
-    }
+.texto-superpuesto {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 10;
+}
 
-    /* Texto SIEMPRE dentro de la foto */
-    .texto-superpuesto {
-        position: absolute !important;
-        bottom: 40px !important; 
-        left: 50% !important;   
-        transform: translateX(-50%) !important; /* Centrado perfecto */
-        width: auto !important;
-        text-align: center;
-        color: white;
-        font-family: Arial, sans-serif;
-        font-weight: 800;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        z-index: 10;
-    }
-
-/* La línea debajo */
 .texto-superpuesto::after {
     content: '';
     display: block;
@@ -1091,413 +1080,99 @@ h1, h2, h3, span, div {
     margin: 8px auto 0;
 }
 
-/* --- AJUSTES PARA CELULAR --- */
-@media (max-width: 768px) {
-    .seccion-categorias {
-        /* Pasamos de 3 columnas a 1 sola para que las fotos respiren */
-        grid-template-columns: 1fr !important; 
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .enlace-categoria {
-        /* Bajamos la altura a 300px o 400px para que no sean tan largas en el celu */
-        height: 350px !important; 
-    }
-
-    .seccion-categorias span {
-        /* Ajustamos el tamaño de la letra para que no ocupe toda la foto */
-        font-size: 1.4rem !important;
-        letter-spacing: 3px !important;
-    }
-}
-
-/* Importar una fuente parecida a la de la imagen */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif; /* Letra moderna y gruesa */
-}
-
-body {
-    background-color: #000; /* Fondo negro total como en la foto */
-    color: #fff;
-}
-
-/* ENCABEZADO (Blanco arriba) */
-.encabezado {
-    background-color: #fff;
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-links ul li a {
-    color: #000;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 14px;
-    text-decoration: none;
-    margin-left: 20px;
-}
-
-/* FILTROS */
-.barra-filtros {
-    background-color: #000;
-    padding: 20px 5%;
-    border-bottom: 1px solid #333;
-}
-
-.barra-filtros p {
-    font-weight: 900;
-    font-size: 12px;
-    letter-spacing: 2px;
-    cursor: pointer;
-}
-
-/* TITULO HOMBRE */
-.titulo-pagina {
-    text-align: right;
-    font-size: 80px;
-    font-weight: 900;
-    letter-spacing: 15px;
-    margin: 40px 5%;
-}
-
-/* CUADRICULA DE PRODUCTOS */
-.contenedor-productos {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.producto-card {
-    border: 1px solid #555; /* El borde gris delgado de tu imagen */
-    padding: 25px;
-    width: 320px;
-    text-align: center;
-}
-
-.producto-card img {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-/* LETRAS Y NUMEROS DE LA ROPA */
-.p-nombre {
-    font-weight: 900;
-    font-size: 14px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.p-precio {
-    font-weight: 900;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-/* BOTON COMPRAR */
-.btn-comprar {
-    display: inline-block;
-    background-color: #fff;
-    color: #000;
-    padding: 10px 30px;
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 12px;
-    transition: 0.3s;
-}
-
-.btn-comprar:hover {
-    background-color: #000;
-    color: #fff;
-    outline: 1px solid #fff;
-}
-
-@media (max-width: 768px) {
-    .grid-productos {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 10px;
-    }
-    
-    .ultimo-ind {
-        padding: 12px !important;
-    }
-    
-    .ultimo-ind img.producto {
-        height: 150px;
-        object-fit: cover;
-    }
-    
-    .nombre-pro {
-        font-size: 0.8rem !important;
-    }
-    
-    .ultimo-ind span[style*="2.2rem"] {
-        font-size: 1.3rem !important;
-    }
-}
-
-@media (max-width: 768px) {
-    /* El contenedor que envuelve los enlaces */
-    .seccion-categorias {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important; /* Obliga a quedarse en una sola fila */
-        overflow-x: auto !important; /* Habilita el scroll */
-        gap: 15px;
-        padding: 20px;
-        -webkit-overflow-scrolling: touch; /* Suavidad en iPhone */
-        scrollbar-width: none; /* Oculta barra en Firefox */
-    }
-
-    .seccion-categorias::-webkit-scrollbar {
-        display: none; /* Oculta barra en Chrome/Safari */
-    }
-
-    /* Cada enlace debe mantener su tamaño para que se pueda deslizar */
-    .enlace-categoria {
-        flex: 0 0 85% !important; /* Cada imagen ocupa el 85% del ancho */
-        text-decoration: none;
-    }
-
-    .categoria-item {
-        width: 100%;
-        position: relative;
-    }
-
-    .categoria-item img {
-        width: 100%;
-        height: 450px; /* Ajusta la altura a tu gusto */
-        object-fit: cover;
-        border-radius: 8px; /* Opcional: un toque más moderno */
-    }
-}
-
-@media (max-width: 768px) {
-    /* Ajusta el nombre de la clase a tu contenedor de productos */
-    .contenedor-productos, .productos-grid { 
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Dos columnas iguales */
-        gap: 10px;
-        padding: 10px;
-    }
-
-    /* Asegura que las imágenes no se deformen */
-    .producto-card img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo img, .header-logo img {
-        filter: brightness(0) invert(1);
-    }
-}
-
-@media (max-width: 768px) {
-    /* Fondo del header blanco */
-    header, .contenedor-header { 
-        background-color: #ffffff !important;
-        border-bottom: 1px solid #eeeeee; /* Línea divisoria suave */
-        padding: 10px 0;
-    }
-
-    /* Color de los enlaces del menú en negro */
-    .nav-links a, .menu-navegacion a, header a {
-        color: #000000 !important; /* Negro puro para máxima visibilidad */
-        font-weight: 700; /* Un poco más de grosor */
-        font-size: 14px; /* Tamaño cómodo para celular */
-        text-transform: uppercase;
-        letter-spacing: 1px; /* Espaciado entre letras para estilo premium */
-    }
-
-    /* Asegurar que el logo no se invierta a blanco si el fondo es blanco */
-    .logo img, .header-logo img {
-        filter: none !important; /* Mantiene el logo original (negro) */
-    }
-}
-
-@media (max-width: 768px) {
-    /* Nombre del producto */
-    .producto-card h3, .nombre-producto {
-        font-size: 16px !important;
-        font-weight: 800 !important;
-        color: #1a1a1a;
-        margin-bottom: 5px;
-    }
-
-    /* Precio más visible */
-    .precio-producto, .producto-card p {
-        font-size: 18px !important;
-        font-weight: 900 !important;
-        color: #000000;
-    }
-}
-
-/* --- CONFIGURACIÓN ÚNICA PARA MÓVIL --- */
-@media (max-width: 768px) {
-    
-    /* 1. HEADER: Fondo blanco y letras negras para todas las páginas */
-    header, .contenedor-header, .nav-bar { 
-        background-color: #ffffff !important;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    /* Color de los textos del menú */
-    header a, .nav-links a, .menu-navegacion a {
-        color: #000000 !important;
-        font-weight: 700 !important;
-        font-size: 13px;
-    }
-
-    /* Asegurar que el logo sea visible (negro) sobre el fondo blanco */
-    .logo img, .header-logo img {
-        filter: brightness(0) !important; /* Fuerza el logo a ser negro */
-        max-width: 130px;
-    }
-
-    /* 2. CATEGORÍAS: Scroll horizontal (con el dedo) */
-    .seccion-categorias {
-        display: flex !important;
-        flex-wrap: nowrap !important; /* Evita que se bajen */
-        overflow-x: auto !important; /* Activa el scroll lateral */
-        gap: 15px;
-        padding: 15px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    
-    .seccion-categorias::-webkit-scrollbar { display: none; }
-
-    .enlace-categoria {
-        flex: 0 0 85% !important; /* Tamaño de cada tarjeta de categoría */
-    }
-
-    /* 3. PRODUCTOS: Dos columnas (Hombre, Mujer, Fragancias, etc.) */
-    .contenedor-productos, .productos-grid { 
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Estilo Monastery */
-        gap: 10px !important;
-        padding: 10px !important;
-    }
-
-    /* Nombres de productos y Precios más grandes */
-    .producto-card h3, .nombre-producto {
-        font-size: 15px !important;
-        font-weight: 700 !important;
-        color: #000 !important;
-    }
-
-    .precio-producto, .producto-card p {
-        font-size: 17px !important;
-        font-weight: 900 !important;
-        color: #000 !important;
-    }
-
-    /* Botón de compra ajustado al ancho de la columna */
-    .boton-comprar, .btn-comprar {
-        width: 100% !important;
-        padding: 10px !important;
-        font-size: 12px !important;
-        background-color: #000 !important;
-        color: #fff !important;
-    }
-}
-
-/* --- ESTILOS PARA COMPUTADOR --- */
-@media (min-width: 769px) {
-    .contenedor-productos, .productos-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Mantener 3 columnas */
-        gap: 40px; /* Mucho más espacio entre productos */
-        padding: 40px;
-    }
-
-    .producto-card {
-        padding: 15px; /* Espacio interno de la tarjeta */
-        text-align: center;
-    }
-
-    /* Nombre del producto */
-    .producto-card h3, .nombre-producto {
-        font-size: 20px !important; /* Más grande */
-        font-weight: 700 !important;
-        margin-top: 15px;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-    }
-
-    /* Precio */
-    .producto-card p, .precio-producto {
-        font-size: 22px !important;
-        font-weight: 900 !important;
-        color: #fff; /* O negro si tu fondo es blanco */
-        margin-bottom: 15px;
-    }
-}
-
-/* =======================================================
-   ESTILO DEFINITIVO DE PRODUCTOS (HOMBRE, MUJER, ETC.)
-   ======================================================= */
-
-/* --- 1. AJUSTES PARA COMPUTADOR --- */
+/* =====================
+   PRODUCTOS - GRID
+   ===================== */
 .grid-productos {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 40px !important; /* Espacio grande entre productos para que respiren */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-.tarjeta-info {
-    padding: 20px 5px !important; /* Más espacio entre la foto y el texto */
+-info {
+    padding: 20px 5px;
     text-align: center;
 }
-
 .tarjeta-nombre {
-    color: #ffffff !important;
+    color: #ffffff;
     font-family: Arial, sans-serif;
-    font-weight: 900 !important;
-    font-size: 20px !important; /* Nombre grande y claro */
+    font-weight: 900;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 10px !important;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .tarjeta-precio {
-    color: #ffffff !important; /* Cambiado de gris a blanco */
-    font-size: 18px !important;
-    font-weight: 700;
-    margin-bottom: 20px !important;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .tarjeta-btn {
-    background: #ffffff !important;
-    color: #000000 !important;
-    padding: 10px 25px !important;
-    font-weight: 900 !important;
+    display: inline-block;
+    background: #ffffff;
+    color: #000000;
+    padding: 12px 30px;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 14px;
     text-decoration: none;
-    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* --- 2. AJUSTES PARA CELULAR (Estilo Monastery) --- */
+.tarjeta-btn:hover { background: #ddd; }
+
+.tarjeta-info {
+    padding: 20px 8px;
+    text-align: center;
+}
+
+/* =====================
+   MÓVIL
+   ===================== */
 @media (max-width: 768px) {
+
+    /* Categorías scroll horizontal */
+    .seccion-categorias {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 15px;
+        padding: 15px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .seccion-categorias::-webkit-scrollbar { display: none; }
+
+    .enlace-categoria {
+        flex: 0 0 85% !important;
+        height: auto !important;
+    }
+
+    .categoria-item img {
+        height: 450px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* Productos 2 columnas */
     .grid-productos {
-        grid-template-columns: repeat(2, 1fr) !important; /* Dos columnas */
-        gap: 15px !important; /* Espacio ideal para móviles */
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
         padding: 10px !important;
     }
 
     .tarjeta-nombre {
-        font-size: 14px !important; /* Legible pero ajustado al móvil */
+        font-size: 14px !important;
         margin-top: 10px !important;
     }
 
@@ -1506,7 +1181,7 @@ body {
     }
 
     .tarjeta-btn {
-        width: 100% !important; /* El botón ocupa todo el ancho en móvil */
+        width: 100% !important;
         padding: 12px 5px !important;
         font-size: 11px !important;
     }
