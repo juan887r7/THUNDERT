@@ -1,133 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOMBRE | THUNDERT</title>
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=2.2">
+    <link rel="icon" href="img/favicon.png?v=2" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=1.9">
     <style>
-        /* Estilos específicos para la sección de productos */
-        body {
-            background-color: #000; /* Fondo negro como en fragancias */
-            color: white;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .contenedor-productos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 40px 20px;
+        .contenedor-filtros {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px 20px;
+            position: relative;
         }
-
-        .tarjeta-producto {
-            background-color: #111; /* Un negro ligeramente más claro para la tarjeta */
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.4s ease;
-            border: 1px solid #222;
-        }
-
-        .tarjeta-producto:hover {
-            transform: translateY(-10px);
-            border-color: #444;
-        }
-
-        .img-producto {
-            width: 100%;
-            height: 350px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .nombre-producto {
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .precio-producto {
-            font-size: 1.8rem;
-            font-weight: 900;
+        .btn-filtro {
+            background: none;
+            border: 1px solid #555;
             color: #fff;
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        .boton-comprar {
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-
-        .boton-comprar:hover {
-            background-color: #ccc;
-        }
-
-        .titulo-pagina {
-            text-align: center;
-            padding: 50px 0 20px 0;
-            font-size: 3rem;
+            padding: 8px 18px;
+            font-family: Arial, sans-serif;
             font-weight: 900;
-            letter-spacing: 5px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-size: 12px;
+        }
+        .menu-desplegable {
+            display: none;
+            position: absolute;
+            background-color: #111;
+            border: 1px solid #333;
+            z-index: 100;
+            min-width: 150px;
+            top: 36px;
+            left: 20px;
+        }
+        .menu-desplegable a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+        .menu-desplegable a:hover { background: #222; }
+        .mostrar { display: block !important; }
+        .item-oculto { display: none !important; }
+
+        /* GRID DE PRODUCTOS */
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tarjeta {
+            background: #0a0a0a;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .tarjeta:hover .tarjeta-img { transform: scale(1.03); }
+        .tarjeta-img-wrap {
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: #111;
+        }
+        .tarjeta-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .tarjeta-info {
+            padding: 10px 4px 16px;
+        }
+        .tarjeta-nombre {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .tarjeta-precio {
+            color: #aaa;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .tarjeta-btn {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 7px 16px;
+            font-family: Arial, sans-serif;
+            font-weight: 900;
+            font-size: 0.65rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tarjeta-btn:hover { background: #ddd; }
+
+        /* MÓVIL: 2 columnas */
+        @media (max-width: 768px) {
+            .grid-productos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1px;
+                padding: 0 8px;
+            }
+            .tarjeta-nombre { font-size: 0.65rem; }
+            .tarjeta-precio { font-size: 0.65rem; }
+            .tarjeta-btn { font-size: 0.6rem; padding: 6px 10px; }
+            .tarjeta-info { padding: 8px 2px 12px; }
         }
     </style>
 </head>
-<body>
+<body style="background-color: #000; color: white;">
 
-    <!-- Header (Igual al index) -->
-    <header id="header" style="background: rgba(0,0,0,0.9); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 20px 0;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-            <a href="index.html"><img src="img/logo (1).svg" alt="THUNDERT" style="width: 150px;"></a>
-            <nav>
-                <a href="sneakers.html" style="color: white; text-decoration: none; margin-left: 20px; font-weight: bold;">ZAPATILLAS</a>
-                <a href="fragancias.html" style="color: white; text-decoration: none; margin-left: 20px; font-weight: bold;">FRAGANCIAS</a>
-            </nav>
-        </div>
-    </header>
-
-    <div style="margin-top: 100px;">
-        <h1 class="titulo-pagina">HOMBRE</h1>
-
-        <main class="contenedor-productos">
-            
-            <!-- Producto 1 -->
-            <div class="tarjeta-producto">
-                <img src="img/buso1.png" alt="Hoodie Undergold" class="img-producto">
-                <span class="nombre-producto">HOODIE UNDERGOLD NEGRO</span>
-                <span class="precio-producto">90.000 $</span>
-                <a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Hoodie%20Undergold" target="_blank" class="boton-comprar">COMPRAR</a>
-            </div>
-
-            <!-- Producto 2 (Ejemplo de Sneaker) -->
-            <div class="tarjeta-producto">
-                <img src="img/conjunto.png" alt="Sneaker" class="img-producto">
-                <span class="nombre-producto">SNEAKER STREETWEAR</span>
-                <span class="precio-producto">350.000 $</span>
-                <a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Sneaker%20Streetwear" target="_blank" class="boton-comprar">COMPRAR</a>
-            </div>
-
-        </main>
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+        <a href="https://wa.me/3206081551" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="50" height="50">
+        </a>
     </div>
 
-    <!-- Footer Simple -->
-    <footer style="text-align: center; padding: 60px 20px; background: #000; border-top: 1px solid #222; margin-top: 50px;">
-        <p style="color: gray; font-size: 14px;">THUNDERT © 2026 | STREETWEAR IDENTITY</p>
-    </footer>
+    <div id="pageTHUNDERT" style="padding-top:80px;">
+        <div id="headerTHUNDERT" class="fixed-header">
+            <header id="header">
+                <div class="wrapper">
+                    <div id="site-logo">
+                        <a href="index.html"><img src="img/logo (1).svg" alt="THUNDERT"></a>
+                    </div>
+                    <div class="nav-links">
+                        <nav>
+                            <ul class="d-flex">
+                                <li class="link-header"><a href="index.html">INICIO</a></li>
+                                <li class="link-header"><a href="sneakers.html">ZAPATILLAS</a></li>
+                                <li class="link-header"><a href="fragancias.html">FRAGANCIAS</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
 
+        <main class="contenedor-principal" style="padding-top: 40px;">
+
+            <h1 class="titulo-seccion-grande" style="color: white; text-align: center; letter-spacing: 15px; font-weight: 900; text-transform: uppercase; margin-bottom: 30px;">HOMBRE</h1>
+
+            <!-- FILTROS -->
+            <div class="contenedor-filtros">
+                <button class="btn-filtro" onclick="toggleFiltros()">FILTROS ⌵</button>
+                <div id="opcionesFiltro" class="menu-desplegable">
+                    <a href="javascript:void(0)" onclick="filtrarProductos('todos')">TODOS</a>
+                    <a href="javascript:void(0)" onclick="filtrarProductos('filtro-busos')">BUSOS</a>
+                    <a href="javascript:void(0)" onclick="filtrarProductos('filtro-hoodies')">HOODIES</a>
+                    <a href="javascript:void(0)" onclick="filtrarProductos('filtro-jeans')">JEANS</a>
+                </div>
+            </div>
+
+            <!-- GRID -->
+            <div class="grid-productos">
+
+                <div class="tarjeta item-producto filtro-busos">
+                    <div class="tarjeta-img-wrap">
+                        <img class="tarjeta-img" src="img/buso1.png" alt="Buso Undergold">
+                    </div>
+                    <div class="tarjeta-info">
+                        <span class="tarjeta-nombre" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">Buso Undergold</span>
+                        <span class="tarjeta-precio" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">$ 320.000</span>
+                        <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20el%20Buso%20Undergold" class="tarjeta-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta item-producto filtro-busos">
+                    <div class="tarjeta-img-wrap">
+                        <img class="tarjeta-img" src="img/buso1.png" alt="Buso Essential" style="filter:grayscale(0.4)">
+                    </div>
+                    <div class="tarjeta-info">
+                        <span class="tarjeta-nombre" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">Buso Essential</span>
+                        <span class="tarjeta-precio" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">$ 280.000</span>
+                        <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20el%20Buso%20Essential" class="tarjeta-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta item-producto filtro-hoodies">
+                    <div class="tarjeta-img-wrap">
+                        <img class="tarjeta-img" src="img/buso1.png" alt="Hoodie Thundert" style="filter:grayscale(1)">
+                    </div>
+                    <div class="tarjeta-info">
+                        <span class="tarjeta-nombre" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">Hoodie Thundert</span>
+                        <span class="tarjeta-precio" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">$ 250.000</span>
+                        <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20el%20Hoodie%20Thundert" class="tarjeta-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta item-producto filtro-hoodies">
+                    <div class="tarjeta-img-wrap">
+                        <img class="tarjeta-img" src="img/buso1.png" alt="Hoodie Black" style="filter:grayscale(1) brightness(0.7)">
+                    </div>
+                    <div class="tarjeta-info">
+                        <span class="tarjeta-nombre" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">Hoodie Black Edition</span>
+                        <span class="tarjeta-precio" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">$ 270.000</span>
+                        <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20el%20Hoodie%20Black%20Edition" class="tarjeta-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta item-producto filtro-jeans">
+                    <div class="tarjeta-img-wrap">
+                        <img class="tarjeta-img" src="img/buso1.png" alt="Jean Denim Black" style="filter:sepia(0.8)">
+                    </div>
+                    <div class="tarjeta-info">
+                        <span class="tarjeta-nombre" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">Jean Denim Black</span>
+                        <span class="tarjeta-precio" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">$ 180.000</span>
+                        <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20el%20Jean%20Denim%20Black" class="tarjeta-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta item-producto filtro-jeans">
+                    <div class="tarjeta-img-wrap">
+                        <img class="tarjeta-img" src="img/buso1.png" alt="Jean Slim" style="filter:sepia(0.4)">
+                    </div>
+                    <div class="tarjeta-info">
+                        <span class="tarjeta-nombre" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">Jean Slim Fit</span>
+                        <span class="tarjeta-precio" style="font-family: Arial, sans-serif !important; font-weight: 900 !important;">$ 190.000</span>
+                        <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20el%20Jean%20Slim%20Fit" class="tarjeta-btn">Comprar</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <div style="text-align: center; padding: 40px 20px; background: #000; border-top: 1px solid #222; margin-top: 60px;">
+            <p style="color: white; margin-bottom: 20px; font-weight: bold; font-family: Arial, sans-serif; letter-spacing: 2px; font-size: 12px;">SÍGUENOS EN NUESTRAS REDES</p>
+            <div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
+                <a href="https://www.instagram.com/thunder_shoop1/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" width="40">
+                </a>
+                <a href="https://chat.whatsapp.com/KRvYQp1eZqj1hCpYJzZqOm" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="40">
+                </a>
+            </div>
+            <p style="color: #444; font-size: 11px; margin-top: 30px; font-family: Arial, sans-serif; letter-spacing: 1px;">THUNDERT © 2026</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleFiltros() {
+            document.getElementById("opcionesFiltro").classList.toggle("mostrar");
+        }
+        document.addEventListener("click", function(e) {
+            const menu = document.getElementById("opcionesFiltro");
+            const boton = document.querySelector(".btn-filtro");
+            if (!menu.contains(e.target) && e.target !== boton) {
+                menu.classList.remove("mostrar");
+            }
+        });
+        function filtrarProductos(categoria) {
+            document.querySelectorAll('.item-producto').forEach(function(p) {
+                if (categoria === 'todos') {
+                    p.classList.remove('item-oculto');
+                } else {
+                    p.classList.contains(categoria) ? p.classList.remove('item-oculto') : p.classList.add('item-oculto');
+                }
+            });
+            document.getElementById("opcionesFiltro").classList.remove("mostrar");
+        }
+    </script>
 </body>
 </html>

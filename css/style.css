@@ -1111,3 +1111,186 @@ h1, h2, h3, span, div {
         letter-spacing: 3px !important;
     }
 }
+
+/* Importar una fuente parecida a la de la imagen */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Letra moderna y gruesa */
+}
+
+body {
+    background-color: #000; /* Fondo negro total como en la foto */
+    color: #fff;
+}
+
+/* ENCABEZADO (Blanco arriba) */
+.encabezado {
+    background-color: #fff;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links ul li a {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* FILTROS */
+.barra-filtros {
+    background-color: #000;
+    padding: 20px 5%;
+    border-bottom: 1px solid #333;
+}
+
+.barra-filtros p {
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* TITULO HOMBRE */
+.titulo-pagina {
+    text-align: right;
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: 15px;
+    margin: 40px 5%;
+}
+
+/* CUADRICULA DE PRODUCTOS */
+.contenedor-productos {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.producto-card {
+    border: 1px solid #555; /* El borde gris delgado de tu imagen */
+    padding: 25px;
+    width: 320px;
+    text-align: center;
+}
+
+.producto-card img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* LETRAS Y NUMEROS DE LA ROPA */
+.p-nombre {
+    font-weight: 900;
+    font-size: 14px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.p-precio {
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* BOTON COMPRAR */
+.btn-comprar {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #000;
+    color: #fff;
+    outline: 1px solid #fff;
+}
+
+@media (max-width: 768px) {
+    .grid-productos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .ultimo-ind {
+        padding: 12px !important;
+    }
+    
+    .ultimo-ind img.producto {
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .nombre-pro {
+        font-size: 0.8rem !important;
+    }
+    
+    .ultimo-ind span[style*="2.2rem"] {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-categorias { 
+        display: flex;
+        overflow-x: auto; /* Permite el scroll horizontal */
+        scroll-snap-type: x mandatory; /* Hace que se "ajuste" al deslizar */
+        gap: 15px;
+        padding: 10px;
+        white-space: nowrap; /* Evita que el texto salte de línea */
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+    }
+
+    .categoria-item {
+        flex: 0 0 auto; /* Evita que las imágenes se encojan */
+        width: 80%; /* Ajusta esto para que se vea un pedazo de la siguiente imagen */
+        scroll-snap-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        filter: brightness(0) invert(1); /* Convierte el logo negro en blanco */
+        max-width: 120px; /* Ajusta el tamaño para que no sature la pantalla */
+    }
+    
+    header {
+        background-color: rgba(0, 0, 0, 0.9); /* Un fondo sólido para que resalten los links */
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-productos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Crea las dos columnas */
+        gap: 10px; /* Espacio pequeño entre productos */
+        padding: 10px;
+    }
+
+    .producto-card {
+        width: 100%; /* Que ocupen su celda del grid */
+    }
+
+    .producto-card img {
+        height: auto;
+        object-fit: cover;
+    }
+    
+    /* Ajuste de fuente para que el precio y botón quepan bien */
+    .producto-card h3, .producto-card p {
+        font-size: 14px;
+    }
+}
