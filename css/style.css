@@ -1443,28 +1443,71 @@ body {
     }
 }
 
-/* --- ESTILOS PARA CELULAR --- */
+/* =======================================================
+   ESTILO DEFINITIVO DE PRODUCTOS (HOMBRE, MUJER, ETC.)
+   ======================================================= */
+
+/* --- 1. AJUSTES PARA COMPUTADOR --- */
+.grid-productos {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px !important; /* Espacio grande entre productos para que respiren */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.tarjeta-info {
+    padding: 20px 5px !important; /* Más espacio entre la foto y el texto */
+    text-align: center;
+}
+
+.tarjeta-nombre {
+    color: #ffffff !important;
+    font-family: Arial, sans-serif;
+    font-weight: 900 !important;
+    font-size: 20px !important; /* Nombre grande y claro */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px !important;
+}
+
+.tarjeta-precio {
+    color: #ffffff !important; /* Cambiado de gris a blanco */
+    font-size: 18px !important;
+    font-weight: 700;
+    margin-bottom: 20px !important;
+}
+
+.tarjeta-btn {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 10px 25px !important;
+    font-weight: 900 !important;
+    text-decoration: none;
+    font-size: 12px !important;
+}
+
+/* --- 2. AJUSTES PARA CELULAR (Estilo Monastery) --- */
 @media (max-width: 768px) {
-    .contenedor-productos, .productos-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Estilo Monastery */
-        gap: 20px !important; /* Espacio entre productos en celular */
-        padding: 15px !important;
+    .grid-productos {
+        grid-template-columns: repeat(2, 1fr) !important; /* Dos columnas */
+        gap: 15px !important; /* Espacio ideal para móviles */
+        padding: 10px !important;
     }
 
-    .producto-card h3, .nombre-producto {
-        font-size: 16px !important; /* Tamaño legible en móvil */
-        font-weight: 700 !important;
-        margin-top: 10px;
+    .tarjeta-nombre {
+        font-size: 14px !important; /* Legible pero ajustado al móvil */
+        margin-top: 10px !important;
     }
 
-    .producto-card p, .precio-producto {
-        font-size: 18px !important;
-        font-weight: 900 !important;
+    .tarjeta-precio {
+        font-size: 15px !important;
     }
 
-    .boton-comprar {
-        margin-top: 10px;
-        padding: 12px !important; /* Botón más fácil de tocar */
+    .tarjeta-btn {
+        width: 100% !important; /* El botón ocupa todo el ancho en móvil */
+        padding: 12px 5px !important;
+        font-size: 11px !important;
     }
 }
