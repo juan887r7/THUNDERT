@@ -54,7 +54,56 @@
                 font-size: 2rem;
             }
         }
-    </style>
+
+        /* Estilos de tarjeta unificados con hombre.html */
+        .nombre-pro {
+            color: black !important;
+            font-family: Arial, sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 1.4rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            display: block !important;
+            margin-bottom: 8px !important;
+        }
+        .boton-comprar-wa {
+            display: inline-block !important;
+            background: black !important;
+            color: white !important;
+            padding: 12px 25px !important;
+            font-family: Arial, sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 1.1rem !important;
+            text-decoration: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border-radius: 0 !important;
+        }
+        .boton-comprar-wa:hover { background: #333 !important; }
+        @media (max-width: 768px) {
+            .nombre-pro { font-size: 0.85rem !important; }
+            .boton-comprar-wa { font-size: 0.8rem !important; padding: 8px 10px !important; width: 100% !important; }
+        }
+    
+    /* Quitar fondo gris del carrusel */
+    .bg-gray { background-color: transparent !important; }
+    .carrusel-wrapper { background-color: transparent !important; }
+
+    /* === MARCA DE AGUA THUNDERT === */
+    .contenedor-principal {
+        position: relative;
+    }
+    .contenedor-principal::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='32' fill='rgba(255,255,255,0.07)' letter-spacing='6' transform='rotate(-25 150 60)'%3ETHUNDERT%3C/text%3E%3C/svg%3E");
+        background-repeat: repeat;
+        pointer-events: none;
+        z-index: 1;
+        user-select: none;
+    }
+</style>
 </head>
 <body>
     <div class="whatsapp-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
