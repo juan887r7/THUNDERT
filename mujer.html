@@ -21,19 +21,22 @@
         .tarjeta-img-wrap { overflow: hidden; aspect-ratio: 3/4; background: #111; }
         .tarjeta-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
 
-        .tarjeta-info { padding: 20px 8px; text-align: center; }
-        .tarjeta-nombre { color: white; font-family: Arial, sans-serif; font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 10px; }
-        .tarjeta-precio { color: #ffffff; font-family: Arial, sans-serif; font-size: 22px; font-weight: 900; display: block; margin-bottom: 20px; }
-        .tarjeta-btn { display: inline-block; background: white; color: black; padding: 12px 30px; font-family: Arial, sans-serif; font-weight: 900; font-size: 14px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
-        .tarjeta-btn:hover { background: #ddd; }
+       .tarjeta-info { padding: 14px 8px 18px; text-align: center; }
+.tarjeta-nombre { color: white; font-family: Arial, sans-serif; font-weight: 900; font-size: 1.4rem !important; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px; }
+.tarjeta-precio { color: white; font-family: Arial, sans-serif; font-size: 1.8rem !important; font-weight: 900; display: block; margin-bottom: 14px; }
+.tarjeta-btn { display: inline-block; background: white; color: black !important; padding: 12px 25px; font-family: Arial, sans-serif; font-weight: 900; font-size: 1.1rem !important; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+.tarjeta-btn:hover { background: #ddd; }
 
-        @media (max-width: 768px) {
-            .grid-productos { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 8px; }
-            .tarjeta-nombre { font-size: 13px; }
-            .tarjeta-precio { font-size: 16px; }
-            .tarjeta-btn { width: 100%; padding: 12px 5px; font-size: 12px; }
-            .tarjeta-info { padding: 12px 4px 16px; }
-        }
+@media (max-width: 768px) {
+    .grid-productos { grid-template-columns: repeat(2, 1fr); gap: 1px; padding: 0 8px; }
+    .tarjeta-nombre { font-size: 0.85rem !important; }
+    .tarjeta-precio { font-size: 1.1rem !important; }
+    .tarjeta-btn { font-size: 0.8rem !important; padding: 8px 10px; width: 100%; }
+    .tarjeta-info { padding: 10px 4px 14px; }
+}
+.tarjeta-nombre {
+    min-height: 3.5rem;
+}
     </style>
 </head>
 <body style="background-color: #000; color: white;">
