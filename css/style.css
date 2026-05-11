@@ -347,6 +347,12 @@ h1, h2, h3, span, div {
     padding: 0 60px;
 }
 
+@media (max-width: 768px) {
+    .carrusel-wrapper {
+        padding: 0 35px 0 10px !important;
+    }
+}
+
 .bg-gray.seccion-ultimo {
     display: flex;
     flex-direction: row;
@@ -686,26 +692,22 @@ h1, h2, h3, span, div {
 @media (max-width: 768px) {
     .contenedor-horizontal::-webkit-scrollbar { display: none !important; }
     .ultimo-ind {
-        flex: 0 0 55% !important;
-        min-width: 55% !important;
-        max-width: 55% !important;
+        flex: 0 0 60% !important;
+        min-width: 60% !important;
+        max-width: 60% !important;
     }
 }
 
 .ultimo-ind {
-    flex: 0 0 260px !important;
-    min-width: 260px !important;
-    max-width: 260px !important;
-    background-color: #0a0a0a !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    box-shadow: none !important;
+    flex: 0 0 300px !important;
+    min-width: 300px !important;
+    background-color: white !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
+    align-items: center !important;
     scroll-snap-align: center !important;
-    overflow: hidden !important;
 }
 
 .nombre-pro {
