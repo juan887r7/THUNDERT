@@ -69,8 +69,9 @@
         }
         .ultimo-ind img.producto {
             width: 100% !important;
-            aspect-ratio: 3/4 !important;
+            aspect-ratio: 1/1 !important;
             object-fit: cover !important;
+            object-position: center top !important;
             display: block !important;
             border-radius: 0 !important;
             padding: 0 !important;
@@ -80,18 +81,18 @@
             margin-bottom: 0 !important;
         }
         .ultimo-ind:hover img.producto { transform: scale(1.03) !important; }
-        .ultimo-info { padding: 14px 10px 4px; text-align: center; }
+        .ultimo-info { padding: 12px 10px 4px; text-align: center; }
         .ultimo-ind .nombre-pro {
             color: white !important;
             font-size: 1rem !important;
-            margin: 0 0 6px !important;
+            margin: 0 0 4px !important;
             display: block !important;
         }
         .ultimo-ind .precio-ultimo {
             color: white !important;
             font-family: Arial, sans-serif !important;
             font-weight: 900 !important;
-            font-size: 1.3rem !important;
+            font-size: 1.2rem !important;
             display: block !important;
             margin-bottom: 8px !important;
         }
@@ -128,6 +129,13 @@
             letter-spacing: 1px !important;
         }
         .ultimo-ind .boton-comprar-wa:hover { background: #ddd !important; }
+
+        @media (max-width: 768px) {
+            .ultimo-ind {
+                flex: 0 0 72vw !important;
+                min-width: 72vw !important;
+            }
+        }
 
         /* === MARCA DE AGUA EN SECCIÓN CATEGORÍAS === */
         .seccion-categorias {
