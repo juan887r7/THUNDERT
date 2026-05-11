@@ -1,85 +1,94 @@
-html{
+/* ============================================================
+   THUNDERT — STYLESHEET
+   Organizado por secciones para fácil edición
+   ============================================================ */
+
+
+/* ============================================================
+   1. BASE — Reset y estilos globales
+   ============================================================ */
+html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
 *,
 *::before,
-*:after{
+*:after {
     box-sizing: inherit;
 }
 
-/* Esto pone el fondo negro en TODA la web */
 body {
     background-color: #000000 !important;
-    color: #ffffff !important; /* Pone todas las letras blancas por defecto */
+    color: #ffffff !important;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif; /* O la fuente que estés usando */
+    font-family: 'Inter', sans-serif;
 }
 
-/* Ajuste para que los títulos y precios se vean en blanco */
 h1, h2, h3, span, div {
     color: #ffffff;
 }
 
-/* Ajuste para el carrusel y las cajas de productos */
-.bg-gray, .seccion-ultimo {
-    background-color: #0a0a0a !important; /* Un gris casi negro para dar profundidad */
-    border-radius: 10px;
-}
 
-.ultimo-ind {
-    background-color: #111111; /* Color de la tarjetita del producto */
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #222; /* Un borde sutil para que se note la caja */
-}
-
-.txt-base-carousel-section-price {
-    color: #ffffff !important;
-}
-  /*header*/
-
-/* --- NUEVO HEADER THUNDERT MODERNO --- */
+/* ============================================================
+   2. HEADER — Barra de navegación fija
+   ============================================================ */
 #headerTHUNDERT.fixed-header {
     position: fixed;
-    top: 0; /* Mejor en 0 para que no flote raro en cel */
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #ffffff; /* Blanco sólido como Monastery */
+    background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
 }
 
 #header {
-    /* Le damos más altura para que el logo no esté apretado */
-    height: 120px; 
+    height: 120px;
     display: flex;
     align-items: center;
-    padding-top: 15px; /* Esto lo empuja un poco hacia abajo */
+    padding-top: 15px;
     padding-bottom: 10px;
 }
 
 #site-logo img {
-    /* Lo anchamos un poco más como pediste */
-    width: 140px; 
+    width: 140px;
     height: auto;
     display: block;
-    margin: 0 auto; /* Lo asegura en el centro */
-}
-.wrapper {
-    width: 95%; /* Más espacio en los bordes */
-    margin: auto;
-    display: flex;
-    justify-content: space-between; /* Logo a un lado, menú al otro */
-    align-items: center;
+    margin: 0 auto;
 }
 
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .nav-links {
     display: flex;
     align-items: center;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.nav-links ul li {
+    margin-left: 30px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.6rem;
 }
 
 .d-flex {
@@ -87,111 +96,79 @@ h1, h2, h3, span, div {
     margin: 0;
     padding: 0;
     list-style: none;
-    gap: 20px; /* Espaciado moderno entre links */
+    gap: 20px;
 }
 
 .link-header a {
     text-decoration: none;
     color: #000000;
-    /* Subimos el tamaño para que destaquen */
-    font-size: 16px !important; 
-    /* Un poco de espacio entre letras para que se vea premium */
-    letter-spacing: 2px; 
+    font-size: 16px !important;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 800; /* Más negrita para que tengan fuerza */
+    font-weight: 800;
 }
 
-/* --- AJUSTE PARA LOGO MÁS LARGO EN CELULAR --- */
+/* Header — Responsive móvil */
+@media (max-width: 992px) {
+    #site-logo img { width: 80px; }
+    .nav-links ul li a { font-size: 1.1rem; }
+}
+
 @media (max-width: 768px) {
-    
     #headerTHUNDERT.fixed-header {
         height: auto !important;
-        padding: 10px 0 !important; /* Un poquito más de aire arriba/abajo */
+        padding: 5px 0 !important;
+        background-color: rgba(255, 255, 255, 0.98);
     }
-
     .wrapper {
         flex-direction: column !important;
         align-items: flex-start !important;
         padding-left: 20px !important;
     }
-
     #site-logo {
         width: 100% !important;
         justify-content: flex-start !important;
-        margin-bottom: 20px !important; /* Más espacio antes de los links */
+        margin-bottom: 20px !important;
     }
-
     #site-logo img {
-        /* AQUÍ LO HACEMOS MÁS LARGO */
-        width: 250px !important; /* Súbele a 220px o 250px si lo quieres todavía más largo */
-        max-width: 90% !important; /* Para que no toque el borde derecho */
+        width: 60px !important;
+        max-width: 90% !important;
         height: auto !important;
         margin: 0 !important;
         display: block !important;
-        
-        /* Opcional: Si quieres que las letras se vean un pelín más nítidas al agrandar */
         image-rendering: -webkit-optimize-contrast;
     }
-
     .nav-links {
-        padding-left: 0 !important; /* Alineamos los links con el inicio del logo largo */
+        padding-left: 0 !important;
     }
-
+    .nav-links ul {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 12px !important;
+    }
+    .nav-links ul li a {
+        font-size: 0.85rem !important;
+    }
     .d-flex {
-        gap: 25px !important; /* Más separación entre DROPS, ZAPATILLAS, etc. */
+        gap: 25px !important;
         justify-content: flex-start !important;
         width: 100% !important;
         margin-top: 10px !important;
     }
-
     .link-header a {
-        /* En celular un poco más grandes que antes pero que quepan */
-        font-size: 14px !important; 
+        font-size: 14px !important;
         letter-spacing: 1px !important;
     }
-   
-}
-/*footer*/
-
-.footer-basic{
-    padding:  40px 0;
-    background-color: #000;
-    color: #ffffff;
 }
 
-.footer-basic .social{
-    text-align: center;
 
-}
-
-.footer-basic .social > a{
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 50%;
-    border: 1px solid #ffffff;
-    margin: 0 8px;
-    color: #ffffff;
-    opacity: 0.75;
-    
-}
-
-.footer-basic .social > a:hover{
-    opacity: 1;
-}
-
-/*portada*/
-
-/* =======================================================
-    ESTILOS DE LA PORTADA (SEGÚN EL VIDEO)
-   ======================================================= */
-
+/* ============================================================
+   3. PORTADA / BANNER PRINCIPAL
+   ============================================================ */
 .portada {
     background-image: url(../img/banner.jpeg);
-    background-attachment: scroll; /* Cambiado de fixed a scroll para mejor compatibilidad en móvil */
+    background-attachment: scroll;
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -205,16 +182,17 @@ h1, h2, h3, span, div {
 }
 
 .header__texto {
+    display: none !important; /* Texto del banner oculto */
     text-align: center;
     color: #ffffff;
     max-width: 800px;
     z-index: 2;
-    padding: 0 20px; /* Margen para que el texto no toque los bordes del cel */
+    padding: 0 20px;
 }
 
 .header__texto h2 {
     font-size: 7rem;
-    margin: 0px 0px 10px 0px;
+    margin: 0 0 10px 0;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 900;
@@ -236,136 +214,28 @@ h1, h2, h3, span, div {
     letter-spacing: 2px;
 }
 
-/* --- AJUSTES ESPECÍFICOS PARA CELULAR --- */
+/* Portada — Responsive móvil */
 @media (max-width: 768px) {
     .portada {
-        /* 1. Eliminamos cualquier color gris de fondo */
-        background-color: #000 !important; 
-        
-        /* 2. Ajustamos la imagen para que toque los bordes laterales */
+        background-color: #000 !important;
         background-image: url(../img/banner.jpeg);
-        background-size: contain !important; /* Muestra la imagen completa sin recortar */
+        background-size: contain !important;
         background-repeat: no-repeat !important;
         background-position: center center !important;
-
-        /* 3. El truco maestro: Altura proporcional */
-        /* En lugar de 80vh o 100vh que dejan huecos, usamos una altura baja */
-        height: 220px !important; 
-        
-        /* 4. Quitamos márgenes que puedan estar empujando el contenido */
+        height: 220px !important;
         margin: 0 !important;
         padding: 0 !important;
-        
-        /* 5. Si hay un degradado o overlay gris, lo quitamos */
         background-blend-mode: normal !important;
     }
-
-    /* Si el espacio gris es arriba (por el menú), ajustamos el margen */
-    .header {
-        margin-bottom: 0 !important;
-    }
-}
-
-    /* Ocultamos el texto que está encima para que no tape tu logo de fondo */
-    .header__texto {
-        display: none !important;
-    }
-
-
-/* =======================================================
-    ALINEACIÓN DEL HEADER (LOGO IZQ / MENÚ DER)
-   ======================================================= */
-
-.wrapper {
-    width: 90%;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links ul {
-    display: flex;
-    list-style-type: none;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    padding-left: 0px;
-}
-
-.nav-links ul li {
-    margin-left: 30px;
-}
-
-.nav-links ul li a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.6rem;
-}
-
-/* RESPONSIVE */
-
-/* =======================================================
-    1. TABLET (Pantallas medianas)
-   ======================================================= */
-@media (max-width: 992px) {
-    #site-logo img { width: 80px; }
-    .nav-links ul li a { font-size: 1.1rem; }
-    .header__texto h2 { font-size: 4rem; }
-}
-
-/* =======================================================
-    2. CELULAR (Lo que verá el dueño en su móvil)
-   ======================================================= */
-@media (max-width: 768px) {
-    /* Header ultra delgado */
-    #headerTHUNDERT.fixed-header {
-        padding: 5px 0 !important;
-        background-color: rgba(255, 255, 255, 0.98);
-    }
-
-    /* Logo pequeño para ganar espacio */
-    #site-logo img {
-        width: 60px !important;
-        margin-bottom: 2px !important;
-    }
-
-    /* Menú en una sola línea horizontal */
-    .nav-links ul {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 12px !important;
-    }
-
-    .nav-links ul li a {
-        font-size: 0.85rem !important;
-    }
-
-    /* Bajamos la portada para que el logo no tape a THUNDERT */
-    .portada {
-        padding-top: 150px !important; 
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
     .header__texto h2 {
         font-size: 3.2rem !important;
     }
 }
 
 
-/* =======================================================
-    3. WHATSAPP FLOTANTE (Abajo a la derecha)
-   ======================================================= */
+/* ============================================================
+   4. WHATSAPP — Botón flotante
+   ============================================================ */
 .whatsapp-container {
     position: fixed;
     bottom: 20px;
@@ -385,42 +255,24 @@ h1, h2, h3, span, div {
 }
 
 
-
-/* =======================================================
-    SECCIÓN LO ÚLTIMO - CARRUSEL THUNDERT
-   ======================================================= */
-
-/* Título imponente y centrado */
-/* --- TÍTULOS IMPONENTES SOBRE FONDO NEGRO --- */
-.titulo-seccion-grande, .titulo-seccion {
-    color: #ffffff !important; /* Blanco puro para resaltar */
-    font-family: 'Arial Black', Gadget, sans-serif !important; 
+/* ============================================================
+   5. SECCIÓN "LO ÚLTIMO" — Carrusel principal (index.html)
+   ============================================================ */
+.titulo-seccion-grande,
+.titulo-seccion {
+    color: #ffffff !important;
+    font-family: 'Arial Black', Gadget, sans-serif !important;
     font-weight: 900 !important;
     text-align: center;
     text-transform: uppercase;
-    
-    /* Ajuste de escala: imponente pero equilibrado */
-    font-size: 4.5rem; 
-    letter-spacing: 8px; /* Un poco menos de 12px para que no se pierda la lectura */
-    margin: 60px 0;
-    
-    /* Sombra sutil para dar profundidad */
-    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    font-size: 4.5rem;
+    letter-spacing: 8px;
+    margin: 10px 0;
+    text-shadow: 0px 4px 10px rgba(255,255,255,0.1);
     display: block;
     width: 100%;
 }
 
-/* Ajuste para que el nombre del producto sea idéntico al de los zapatos */
-.nombre-pro, .nombre-producto {
-    font-family: 'Arial Black', sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 1.4rem !important;
-    letter-spacing: -1px !important; /* Letras juntas como en FUERZA AÉREA */
-    color: #000 !important; /* Negro porque la tarjeta del producto es blanca */
-    text-transform: uppercase;
-}
-
-/* Contenedor que agrupa flechas y productos */
 .carrusel-wrapper {
     position: relative;
     display: flex;
@@ -428,80 +280,29 @@ h1, h2, h3, span, div {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 60px; /* Espacio para que las flechas no tapen el contenido */
+    padding: 0 60px;
 }
 
-/* El "túnel" por donde pasan las camisas */
+.bg-gray,
+.seccion-ultimo {
+    background-color: #0a0a0a !important;
+    border-radius: 10px;
+}
+
 .bg-gray.seccion-ultimo {
     display: flex;
-    flex-direction: row;   /* Fuerza la fila */
-    flex-wrap: nowrap;     /* OBLIGATORIO: Evita que las camisas se vayan hacia abajo */
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
     gap: 25px;
-    padding: 40px 10px;
+    padding: 10px;
     width: 100%;
-    overflow-x: hidden;    /* Esconde la barra de scroll */
+    overflow-x: hidden;
     scroll-behavior: smooth;
-    background-color: #f3f3f3; /* Color de fondo gris claro */
+    background-color: transparent;
 }
 
-/* Tarjeta de cada Camisa */
-.ultimo-ind {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    min-width: 320px;      /* Ancho fijo para cada una de las 20 camisas */
-    max-width: 320px;
-    flex-shrink: 0;        /* OBLIGATORIO: Evita que se aplasten las tarjetas */
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* La Imagen de la Camisa */
-.producto {
-    width: 100%;
-    height: 300px;         /* Altura fija para que todas se vean iguales */
-    object-fit: cover;     /* Ajusta la imagen sin deformarla */
-    border-radius: 8px;
-    margin-bottom: 15px;
-    display: block;
-}
-
-/* Etiquetas de Descuento */
-.txt-base-carousel-secction--discount {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 3px;
-    margin: 0 5px;
-    text-transform: uppercase;
-}
-
-/* Texto del Nombre */
-.ultimo-ind span:not(.txt-base-carousel-secction--discount) {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #000;
-    text-transform: uppercase;
-    margin: 10px 0;
-}
-
-/* El Precio */
-.txt-base-carousel-section-price {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-/* --- BOTONES DE FLECHAS --- */
 .flecha-carrusel {
     position: absolute;
     top: 50%;
@@ -521,20 +322,122 @@ h1, h2, h3, span, div {
     transition: 0.3s ease;
 }
 
-.flecha-carrusel.prev {
-    left: 5px; /* Pegada al borde izquierdo */
-}
-
-.flecha-carrusel.next {
-    right: 5px; /* Pegada al borde derecho */
-}
-
+.flecha-carrusel.prev { left: 5px; }
+.flecha-carrusel.next { right: 5px; }
 .flecha-carrusel:hover {
     background: #333;
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Botón AGREGAR */
+/* Tarjeta individual del carrusel */
+.ultimo-ind {
+    flex: 0 0 300px !important;
+    min-width: 300px !important;
+    background-color: white !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    scroll-snap-align: center !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    justify-content: space-between;
+}
+
+.ultimo-ind img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+}
+
+.ultimo-ind .producto {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: contain !important;
+    background-color: #fcfcfc !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.ultimo-ind:hover .producto { transform: scale(1.05) !important; }
+
+.nombre-pro,
+.nombre-producto {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.8rem !important;
+    text-transform: uppercase !important;
+    color: #000000 !important;
+    display: block !important;
+    margin-top: 15px !important;
+    letter-spacing: -0.5px !important;
+}
+
+.precio {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 2.2rem !important;
+    color: #000000 !important;
+    margin: 10px 0 !important;
+    display: block !important;
+}
+
+.txt-base-carousel-section-price {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 2.2rem !important;
+    color: #000000 !important;
+    text-align: center !important;
+    display: block !important;
+    margin: 15px 0 !important;
+    line-height: 1 !important;
+    letter-spacing: -1px !important;
+}
+
+.txt-base-carousel-section-price::first-letter {
+    font-size: 1.6rem;
+    vertical-align: top;
+}
+
+.txt-base-carousel-secction--discount {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+.ultimo-ind span:not(.txt-base-carousel-secction--discount) {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.boton-comprar-wa {
+    display: block;
+    background-color: #000;
+    color: #fff !important;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 900 !important;
+    font-size: 14px;
+    font-family: Arial, sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: 4px;
+}
+
+.boton-comprar-wa:hover { background-color: #333; }
+
 .boton--primario {
     background-color: #000000;
     color: #ffffff;
@@ -548,12 +451,113 @@ h1, h2, h3, span, div {
     width: 100%;
 }
 
-.boton--primario:hover {
-    background-color: #444;
+.boton--primario:hover { background-color: #444; }
+
+.producto {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
 }
 
-/*categorias*/
+/* Carrusel — Responsive móvil */
+@media (max-width: 767px) {
+    .titulo-seccion-grande {
+        font-size: 1.8rem !important;
+        letter-spacing: 4px !important;
+        margin-top: 10px !important;
+        margin-bottom: 15px !important;
+        display: block;
+    }
+    .ultimo-ind {
+        padding: 10px !important;
+        margin: 5px !important;
+    }
+    .ultimo-ind .producto {
+        height: 180px !important;
+        object-fit: contain !important;
+    }
+    .nombre-pro { font-size: 1.1rem !important; }
+    .txt-base-carousel-section-price { font-size: 1.4rem !important; }
+}
 
+@media (min-width: 768px) {
+    .ultimo-ind {
+        flex: 0 0 31.5% !important;
+        min-width: 320px !important;
+    }
+}
+
+
+/* ============================================================
+   6. SECCIÓN CATEGORÍAS — HOMBRE / MUJER / ACCESORIOS (index)
+   ============================================================ */
+.seccion-categorias {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background-color: #000;
+    width: 100%;
+    margin: 0;
+}
+
+.enlace-categoria {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    background-color: #000;
+}
+
+.categoria-item {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+}
+
+.categoria-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    filter: brightness(0.9);
+    transition: transform 0.6s ease;
+}
+
+.enlace-categoria:hover img { transform: scale(1.05); }
+
+/* Nombre sobre la imagen (HOMBRE / ACCESORIOS / MUJER) */
+.texto-superpuesto {
+    position: absolute;
+    bottom: 40px;           /* ← Cambia este valor para subir/bajar el texto */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;      /* ← Cambia para agrandar/achicar el texto */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 10;
+}
+
+/* Línea decorativa debajo del nombre */
+.texto-superpuesto::after {
+    content: '';
+    display: block;
+    width: 60px;            /* ← Cambia el ancho de la línea */
+    height: 3px;            /* ← Cambia el grosor de la línea */
+    background-color: white;
+    margin: 10px auto 0;
+    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* Categorías antiguas (contenedor-categorias) */
 .contenedor-categorias {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -564,12 +568,12 @@ h1, h2, h3, span, div {
 
 .categoria-card {
     position: relative;
-    height: 75vh; 
+    height: 75vh;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: #1a1a1a; /* Fondo por si la imagen tarda en cargar */
+    background-color: #1a1a1a;
 }
 
 .categoria-card img {
@@ -596,8 +600,8 @@ h1, h2, h3, span, div {
 
 .categoria-info h2 {
     color: white;
-    font-size: 16px; /* Tamaño un poco más sutil */
-    letter-spacing: 7px; /* Espaciado Monastery total */
+    font-size: 16px;
+    letter-spacing: 7px;
     font-weight: 300;
     text-transform: uppercase;
     margin: 0;
@@ -613,476 +617,54 @@ h1, h2, h3, span, div {
     transition: width 0.4s ease;
 }
 
-.categoria-card:hover .categoria-info h2::after {
-    width: 60px;
-}
-/* EFECTO SCROLL LATERAL PARA CELULARES */
+.categoria-card:hover .categoria-info h2::after { width: 60px; }
+
+/* Categorías — Responsive móvil */
 @media (max-width: 768px) {
+    .seccion-categorias {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 15px;
+        padding: 15px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .seccion-categorias::-webkit-scrollbar { display: none; }
+    .enlace-categoria {
+        flex: 0 0 85% !important;
+        height: auto !important;
+    }
+    .categoria-item img {
+        height: 450px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
     .contenedor-categorias {
-        display: flex !important; /* Cambiamos de rejilla a fila */
-        overflow-x: auto !important; /* Permite deslizar a los lados */
-        scroll-snap-type: x mandatory; /* Hace que la imagen se "ajuste" al centro al soltar */
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
         gap: 10px;
         padding: 10px;
-        -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+        -webkit-overflow-scrolling: touch;
     }
-
-    .contenedor-categorias::-webkit-scrollbar {
-        display: none; /* Oculta la barra de scroll para que se vea más limpio */
-    }
-
+    .contenedor-categorias::-webkit-scrollbar { display: none; }
     .categoria-card {
-        flex: 0 0 85%; /* Cada carta ocupa el 85% del ancho para que se vea un poquito de la siguiente */
-        height: 60vh; /* Un poco más bajitas para que no tapen toda la pantalla */
-        scroll-snap-align: center; /* Centra la imagen al deslizar */
-        border-radius: 5px; /* Opcional: un toque sutil */
+        flex: 0 0 85%;
+        height: 60vh;
+        scroll-snap-align: center;
+        border-radius: 5px;
     }
-
     .categoria-info h2 {
-        font-size: 14px; /* Texto un poco más pequeño para celular */
+        font-size: 14px;
         letter-spacing: 4px;
     }
 }
-.boton-comprar-wa {
-    display: block;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    margin-top: 10px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 14px;
-    border-radius: 4px;
-}
 
-/* Esto limpia cualquier residuo que empuje el título a los lados */
-.content-fragancias {
-    padding-top: 160px !important; /* Espacio exacto para que el header no lo tape */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    background-color: #000 !important;
-}
 
-.titulo-principal {
-    color: #fff !important;
-    font-size: 3.5rem !important;
-    letter-spacing: 12px !important;
-    text-transform: uppercase !important;
-    font-weight: 900 !important;
-    margin: 0 auto 50px auto !important; /* Centrado horizontal automático */
-    text-align: center !important;
-    width: 100% !important;
-}
-
-/* Estilo para el nombre de la marca encima del scroll */
-
-
-
-.ultimo-ind img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-
-
-
-/* Título de la Marca Centrado y Estilizado */
-
-
-/* Línea sutil debajo del nombre de la marca */
-.titulo-marca::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background-color: white;
-    margin: 10px auto 0 auto; /* Centra la línea */
-}
-
-
-/* --- DISEÑO DE SNEAKERS FINAL --- */
-
-/* 1. Nombres de marcas (Nike, Valentino, Adidas) */
-
-
-/* Línea blanca debajo del nombre */
-.titulo-marca::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background-color: white;
-    margin: 10px auto 0 auto;
-}
-
-/* 2. El contenedor que permite deslizar a los lados */
-/* ELIMINA cualquier otra versión de .contenedor-horizontal y pega esta */
-
-/* Esto es para que no se vea la barra gris fea abajo */
-.contenedor-horizontal::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-/* 3. La tarjeta blanca del zapato */
-
-
-
-/* 4. Ajustes para que en Computadora se vea ordenado */
-/* --- ESTO ES SOLO PARA CELULARES --- */
-@media (max-width: 767px) {
-    /* Achicamos el título de FRAGANCIA */
-    .titulo-seccion-grande {
-        font-size: 1.8rem !important; /* Más pequeño para que no asuste */
-        letter-spacing: 4px !important; /* Juntamos las letras */
-        margin-top: 10px !important;
-        margin-bottom: 15px !important;
-        display: block;
-    }
-
-    /* Ajustamos la tarjeta del perfume para que no sea tan gigante */
-    .ultimo-ind {
-        padding: 10px !important;
-        margin: 5px !important;
-    }
-
-    /* Reducimos la foto del perfume para que quepa todo en la pantalla */
-    .ultimo-ind .producto {
-        height: 180px !important; /* Altura más cómoda para el dedo */
-        object-fit: contain !important;
-    }
-
-    /* Ajustamos el tamaño del nombre y precio para que quepan bien */
-    .nombre-pro {
-        font-size: 1.1rem !important;
-    }
-    
-    .txt-base-carousel-section-price {
-        font-size: 1.4rem !important;
-    }
-}
-
-/* --- ESTO ES PARA COMPUTADORA (Lo que ya tenías) --- */
-@media (min-width: 768px) {
-    .ultimo-ind {
-        flex: 0 0 31.5% !important; 
-        min-width: 320px !important;
-    }
-
-    .titulo-marca {
-        font-size: 3rem !important;
-    }
-}
-/* =======================================================
-   SECCIÓN DE ZAPATILLAS (CARRUSEL LATERAL) - VERSIÓN FINAL
-   ======================================================= */
-
-/* 1. Título de la Marca (Nike, Adidas, etc.) */
-.titulo-marca {
-    font-family: 'Montserrat', sans-serif !important;
-    color: white !important;
-    font-size: 2.2rem !important;
-    text-align: center !important;
-    text-transform: uppercase !important;
-    letter-spacing: 8px !important;
-    margin: 60px 0 20px 0 !important;
-    width: 100% !important;
-    display: block !important;
-}
-
-.titulo-marca::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background-color: white;
-    margin: 10px auto 0 auto;
-}
-
-
-
-.contenedor-horizontal::-webkit-scrollbar-track {
-    background: #333333 !important; /* Color del fondo de la barra */
-}
-
-.seccion-marca {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-imagen.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important; /* Esto hace que la imagen se quede quieta al bajar */
-    padding: 50px 0 !important;
-}
-
-
-
-/* Imágenes de los zapatos */
-.ultimo-ind img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 10px !important;
-}
-
-
-
-/* Ajuste para que en celulares se vea el 85% */
-@media (max-width: 768px) {
-    .ultimo-ind {
-        flex: 0 0 85% !important;
-        min-width: 85% !important;
-    }
-}
-
-/* 1. EL CONTENEDOR (Lo que permite el movimiento) */
-.contenedor-horizontal {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important; /* Obliga a los zapatos a estar en una sola fila */
-    overflow-x: auto !important;  /* Activa el scroll lateral */
-    width: 100% !important;
-    gap: 20px !important;
-    padding: 20px !important;
-    -webkit-overflow-scrolling: touch !important; /* Movimiento suave en celulares */
-    scroll-snap-type: x mandatory !important;    /* Ajuste automático al deslizar */
-}
-
-/* 2. LA BARRA BLANCA (Visible en PC, oculta en celular para que sea limpio) */
-.contenedor-horizontal::-webkit-scrollbar {
-    height: 6px !important;
-    display: block !important;
-}
-
-.contenedor-horizontal::-webkit-scrollbar-thumb {
-    background: white !important;
-    border-radius: 10px !important;
-}
-
-.contenedor-horizontal::-webkit-scrollbar-track {
-    background: #333333 !important; /* Color del fondo de la barra */
-}
-
-
-@media (max-width: 768px) {
-    .contenedor-horizontal::-webkit-scrollbar {
-        display: none !important; /* En celular no hace falta ver la barra */
-    }
-}
-
-/* 3. LA TARJETA (El tamaño de cada zapato) */
-.ultimo-ind {
-    flex: 0 0 300px !important; /* Tamaño fijo en PC */
-    min-width: 300px !important; 
-    background-color: white !important;
-    border-radius: 20px !important;
-    padding: 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    scroll-snap-align: center !important; /* Se alinea al centro al soltar el dedo */
-}
-
-@media (max-width: 768px) {
-    .ultimo-ind {
-        flex: 0 0 85% !important; /* En celular ocupa casi toda la pantalla */
-        min-width: 85% !important;
-    }
-}
-
-/* ESTILO PARA DROPS Y ZAPATILLAS */
-.nombre-pro {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important; /* Grosor máximo */
-    font-size: 1.8rem !important;
-    text-transform: uppercase !important;
-    color: #000000 !important;
-    display: block !important;
-    margin-top: 15px !important;
-    letter-spacing: -0.5px !important;
-}
-
-.precio {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 2.2rem !important;
-    color: #000000 !important;
-    margin: 10px 0 !important;
-    display: block !important;
-}
-
-/* El botón para que también tenga la misma letra */
-.boton-comprar-wa {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-}
-
-/* --- ESTILO PARA LAS IMÁGENES DE FRAGANCIAS --- */
-
-.ultimo-ind .producto {
-    width: 100% !important;
-    height: 300px !important; /* Altura fija para que todas las fotos de perfumes midan lo mismo */
-    object-fit: contain !important; /* Esto evita que el frasco del perfume se estire o se vea flaco */
-    background-color: #f9f9f9 !important; /* Un fondo gris muy claro para que el vidrio resalte */
-    border-radius: 10px !important;
-    padding: 15px !important; /* Espacio para que el perfume no toque los bordes de la foto */
-    transition: transform 0.3s ease !important;
-}
-
-/* Efecto al pasar el mouse por encima del perfume */
-.ultimo-ind:hover .producto {
-    transform: scale(1.05) !important; /* Se agranda un poquito suavemente */
-}
-
-
-/* Opcional: Si quieres que el símbolo '$' se vea un poco más pequeño que el número */
-.txt-base-carousel-section-price::first-letter {
-    font-size: 1.6rem;
-    vertical-align: top;
-}
-.ultimo-ind .producto {
-    padding: 20px !important; /* Crea espacio alrededor del frasco */
-    background-color: #fcfcfc !important; /* Fondo casi blanco muy limpio */
-    object-fit: contain !important;
-}
-
-.txt-base-carousel-section-price {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important; /* Grosor máximo para que se vea potente */
-    font-size: 2.2rem !important; /* Tamaño grande */
-    color: #000000 !important;
-    text-align: center !important;
-    display: block !important;
-    margin: 15px 0 !important;
-    line-height: 1 !important; /* Evita que el precio se suba o se vea pequeño */
-    letter-spacing: -1px !important; /* Junta un poco los números para el estilo moderno */
-}
-
-/* --- CONFIGURACIÓN TRES COLUMNAS IGUALES --- */
-.seccion-categorias {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 15px; 
-    padding: 20px; 
-    background-color: #000; /* Cámbialo a negro si quieres el look de lujo */
-    width: 100%;
-}
-
-.enlace-categoria {
-    text-decoration: none;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    height: 600px; /* Esta es la altura premium que elegiste */
-}
-
-.categoria-item {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.categoria-item img {
-    /* AGREGAMOS !IMPORTANT A TODO PARA QUE NO SE DAÑE */
-    width: 100% !important;
-    height: 100% !important; /* Esto obliga a la foto de accesorios a estirarse hasta los 600px */
-    object-fit: cover !important; /* Esto evita que se vea estirada, la recorta perfecto */
-    display: block !important;
-    filter: brightness(0.9); /* Un toque oscuro para que el texto resalte */
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Efecto Zoom al pasar el mouse (Estilo Monastery) */
-.enlace-categoria:hover img {
-    transform: scale(1.1);
-}
-
-/* Efecto de "sobresalir" al pasar el puntero */
-.enlace-categoria:hover .categoria-item img {
-    transform: scale(1.05);
-}
-
-/* Texto sutil y elegante abajo */
-.texto-superpuesto {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    z-index: 2;
-}
-
-/* =====================
-   CATEGORÍAS - SCROLL HORIZONTAL EN MÓVIL
-   ===================== */
-.seccion-categorias {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
-    background-color: #000;
-    width: 100%;
-}
-
-.enlace-categoria {
-    text-decoration: none;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    height: 600px;
-    background-color: #000;
-}
-
-.categoria-item {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.categoria-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-}
-
-.texto-superpuesto {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 800;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    z-index: 10;
-}
-
-.texto-superpuesto::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background-color: white;
-    margin: 8px auto 0;
-}
-
-/* =====================
-   PRODUCTOS - GRID
-   ===================== */
+/* ============================================================
+   7. HOMBRE & MUJER — Grid de productos con tallas
+   ============================================================ */
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1092,10 +674,7 @@ h1, h2, h3, span, div {
     padding: 40px 20px;
 }
 
--info {
-    padding: 20px 5px;
-    text-align: center;
-}
+/* Tarjeta de producto */
 .tarjeta-nombre {
     color: #ffffff;
     font-family: Arial, sans-serif;
@@ -1136,53 +715,160 @@ h1, h2, h3, span, div {
     text-align: center;
 }
 
-/* =====================
-   MÓVIL
-   ===================== */
+/* Hombre & Mujer — Responsive móvil */
 @media (max-width: 768px) {
-
-    /* Categorías scroll horizontal */
-    .seccion-categorias {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 15px;
-        padding: 15px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    .seccion-categorias::-webkit-scrollbar { display: none; }
-
-    .enlace-categoria {
-        flex: 0 0 85% !important;
-        height: auto !important;
-    }
-
-    .categoria-item img {
-        height: 450px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-
-    /* Productos 2 columnas */
     .grid-productos {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px !important;
         padding: 10px !important;
     }
-
     .tarjeta-nombre {
         font-size: 14px !important;
         margin-top: 10px !important;
     }
-
-    .tarjeta-precio {
-        font-size: 15px !important;
-    }
-
+    .tarjeta-precio { font-size: 15px !important; }
     .tarjeta-btn {
         width: 100% !important;
         padding: 12px 5px !important;
         font-size: 11px !important;
     }
 }
+
+
+/* ============================================================
+   8. ZAPATILLAS / SNEAKERS — Marcas y modelos
+   ============================================================ */
+
+/* Título de cada marca (NIKE, ADIDAS, etc.) */
+.titulo-marca {
+    font-family: 'Montserrat', sans-serif !important;
+    color: white !important;
+    font-size: 2.2rem !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 8px !important;
+    margin: 60px 0 20px 0 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* Línea decorativa debajo del título de marca */
+.titulo-marca::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: white;
+    margin: 10px auto 0 auto;
+}
+
+/* Sección de cada marca */
+.seccion-marca {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-imagen.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    padding: 50px 0 !important;
+}
+
+/* Slider horizontal de productos */
+.contenedor-horizontal {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar {
+    height: 6px !important;
+    display: block !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-thumb {
+    background: white !important;
+    border-radius: 10px !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-track {
+    background: #333333 !important;
+}
+
+/* Zapatillas — Responsive móvil */
+@media (max-width: 768px) {
+    .contenedor-horizontal::-webkit-scrollbar { display: none !important; }
+    .ultimo-ind {
+        flex: 0 0 85% !important;
+        min-width: 85% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .titulo-marca { font-size: 3rem !important; }
+}
+
+
+/* ============================================================
+   9. ACCESORIOS — Filtros y grid
+   ============================================================ */
+/* Los estilos del grid y tarjetas son compartidos con
+   Hombre y Mujer (ver sección 7 — GRID PRODUCTOS).
+   Estilos específicos de accesorios van aquí si se necesitan. */
+
+
+/* ============================================================
+   10. FRAGANCIAS — Sección de perfumes
+   ============================================================ */
+.content-fragancias {
+    padding-top: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    background-color: #000 !important;
+}
+
+.titulo-principal {
+    color: #fff !important;
+    font-size: 3.5rem !important;
+    letter-spacing: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+    margin: 0 auto 50px auto !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+
+/* ============================================================
+   11. FOOTER — Sección "Síguenos en nuestras redes"
+   ============================================================ */
+.footer-basic {
+    padding: 40px 0;
+    background-color: #000;
+    color: #ffffff;
+}
+
+.footer-basic .social {
+    text-align: center;
+}
+
+.footer-basic .social > a {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    margin: 0 8px;
+    color: #ffffff;
+    opacity: 0.75;
+}
+
+.footer-basic .social > a:hover { opacity: 1; }

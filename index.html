@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thundert | Streetwear Identity">
     <title>THUNDERT</title>
@@ -84,26 +85,98 @@
             .nombre-pro { font-size: 0.85rem !important; }
             .boton-comprar-wa { font-size: 0.8rem !important; padding: 8px 10px !important; width: 100% !important; }
         }
-    
-    /* Quitar fondo gris del carrusel */
-    .bg-gray { background-color: transparent !important; }
-    .carrusel-wrapper { background-color: transparent !important; }
 
-    /* === MARCA DE AGUA THUNDERT === */
-    .contenedor-principal {
-        position: relative;
-    }
-    .contenedor-principal::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='32' fill='rgba(255,255,255,0.07)' letter-spacing='6' transform='rotate(-25 150 60)'%3ETHUNDERT%3C/text%3E%3C/svg%3E");
-        background-repeat: repeat;
-        pointer-events: none;
-        z-index: 1;
-        user-select: none;
-    }
-</style>
+        /* === MARCA DE AGUA EN SECCIÓN CATEGORÍAS === */
+        .seccion-categorias {
+            position: relative;
+        }
+        .seccion-categorias::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='32' fill='rgba(255,255,255,0.12)' letter-spacing='6' transform='rotate(-25 150 60)'%3ETHUNDERT%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 2;
+            user-select: none;
+        }
+        .seccion-categorias .enlace-categoria,
+        .seccion-categorias .categoria-item,
+        .seccion-categorias .texto-superpuesto {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* === MARCA DE AGUA EN SECCIÓN CATEGORÍAS === */
+        .seccion-categorias { position: relative !important; }
+        .seccion-categorias::before {
+            content: "" !important;
+            position: absolute !important;
+            inset: 0 !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='32' fill='rgba(255,255,255,0.12)' letter-spacing='6' transform='rotate(-25 150 60)'%3ETHUNDERT%3C/text%3E%3C/svg%3E") !important;
+            background-repeat: repeat !important;
+            pointer-events: none !important;
+            z-index: 2 !important;
+            user-select: none !important;
+        }
+        .enlace-categoria { position: relative !important; z-index: 3 !important; }
+        .categoria-item { position: relative !important; }
+        .texto-superpuesto {
+            position: absolute !important;
+            top: 50% !important;
+            bottom: auto !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            text-align: center !important;
+            width: 100% !important;
+            color: white !important;
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.8) !important;
+            margin: 0 !important;
+            letter-spacing: 2px !important;
+            font-family: Arial, sans-serif !important;
+            pointer-events: none !important;
+            z-index: 10 !important;
+        }
+        .texto-superpuesto::after {
+            content: '' !important;
+            display: block !important;
+            width: 60px !important;
+            height: 3px !important;
+            background-color: white !important;
+            margin: 10px auto 0 !important;
+            box-shadow: 0 0 8px rgba(255,255,255,0.6) !important;
+        }
+        /* Quitar la línea del categoria-item */
+        .categoria-item::after { display: none !important; }
+        @media (max-width: 768px) { .texto-superpuesto { font-size: 2rem !important; } }
+
+        /* === ELIMINAR ESPACIOS NEGROS === */
+        .contenedor-principal { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+        .titulo-seccion-grande { margin: 20px 0 10px !important; }
+        .bg-gray.seccion-ultimo { background-color: transparent !important; padding: 10px !important; }
+        .carrusel-wrapper { background-color: transparent !important; padding-bottom: 0 !important; margin-bottom: 0 !important; }
+        .seccion-categorias { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+        /* === MARCA DE AGUA EN SECCIÓN LO ÚLTIMO === */
+        .contenedor-principal { position: relative; }
+        .contenedor-principal::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='32' fill='rgba(255,255,255,0.07)' letter-spacing='6' transform='rotate(-25 150 60)'%3ETHUNDERT%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+        .carrusel-wrapper, .seccion-ultimo, .ultimo-ind, .flecha-carrusel {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
     <div class="whatsapp-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
@@ -192,7 +265,7 @@
             </a>
         </div>
 
-<div style="text-align: center; padding: 40px 20px; background: #000; border-top: 1px solid #222; margin-top: 60px;">
+<div style="text-align: center; padding: 40px 20px; background: #000; border-top: 1px solid #222; margin-top: 0;">
             <p style="color: white; margin-bottom: 20px; font-weight: bold; font-family: Arial, sans-serif; letter-spacing: 2px; font-size: 12px;">SÍGUENOS EN NUESTRAS REDES</p>
             <div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
                 <a href="https://www.instagram.com/thunder_shoop1/" target="_blank">

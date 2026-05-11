@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FRAGANCIAS | THUNDERT</title>
     <link rel="icon" href="img/favicon.png?v=2" type="image/png">
@@ -44,10 +45,49 @@
             .boton-comprar-wa { font-size: 0.8rem !important; padding: 8px 10px !important; width: 100% !important; }
         }
     
-    /* === MARCA DE AGUA THUNDERT === */
-    body {
-        position: relative;
+    /* === OVERRIDE TARJETA NEGRA (gana al CSS externo) === */
+    .ultimo-ind {
+        background-color: #0a0a0a !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
     }
+    .ultimo-ind .img-wrap {
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        width: 100%;
+    }
+    .ultimo-ind .img-wrap img,
+    .ultimo-ind img.producto {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
+    .ultimo-ind .nombre-pro {
+        color: white !important;
+        padding: 14px 8px 4px !important;
+        display: block !important;
+    }
+    .ultimo-ind .precio,
+    .ultimo-ind .txt-base-carousel-section-price {
+        color: white !important;
+    }
+    .ultimo-ind .boton-comprar-wa {
+        background: white !important;
+        color: black !important;
+        border-radius: 0 !important;
+        margin: 8px 8px 18px !important;
+        display: block !important;
+    }
+    .ultimo-ind span:not(.txt-base-carousel-secction--discount) {
+        color: white !important;
+    }
+
+    /* === MARCA DE AGUA THUNDERT === */
     body::before {
         content: "";
         position: fixed;
@@ -94,16 +134,16 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 20px; max-width: 1200px; margin: 0 auto;">
                 
                 <!-- TARJETA DE FRAGANCIA -->
-                <div class="ultimo-ind" style="background-color: white; padding: 20px; border-radius: 15px; text-align: center;">
-                     <img class="producto" src="img/Ptrueno.png" alt="Esencia de Trueno" style="width: 100%; border-radius: 10px;">
+                <div class="ultimo-ind" style="text-align: center;">
+                     <div class="img-wrap"><img class="producto" src="img/Ptrueno.png" alt="Esencia de Trueno"></div>
                      
                      <!-- Nombre en negro -->
-                     <span class="nombre-pro" style="font-weight: 900 !important; color: black !important; font-family: Arial !important; text-transform: uppercase !important;">FRAGANCIA TRUENO</span>
+                     <span class="nombre-pro" style="font-weight: 900 !important; color: rgb(255, 253, 253) !important; font-family: Arial !important; text-transform: uppercase !important;">FRAGANCIA TRUENO</span>
 
                      <!-- Precio en negro -->
                          <div class="txt-base-carousel-section-price" style="display: block !important; text-align: center !important; margin: 15px 0 !important;">
 
-                             <span style="font-family: Arial, sans-serif !important; font-weight: 900 !important; font-size: 2.2rem !important; color: black !important; line-height: 1 !important; display: inline-block !important; vertical-align: middle !important; font-variant-numeric: lining-nums !important; -webkit-font-feature-settings: 'lnum' 1 !important;">
+                             <span style="font-family: Arial, sans-serif !important; font-weight: 900 !important; font-size: 2.2rem !important; color: rgb(255, 255, 255) !important; line-height: 1 !important; display: inline-block !important; vertical-align: middle !important; font-variant-numeric: lining-nums !important; -webkit-font-feature-settings: 'lnum' 1 !important;">
                              $ 120.000
                              </span>
                              
@@ -115,7 +155,7 @@
         </main>
 
         <!-- Footer Redes -->
-        <div style="text-align: center; padding: 40px 20px; background: #000; border-top: 1px solid #222; margin-top: 60px;">
+        <div style="text-align: center; padding: 40px 20px; background: #000; border-top: 1px solid #222; margin-top: 60px; position: relative; z-index: 1;">
             <p style="color: white; margin-bottom: 20px; font-weight: bold; font-family: Arial, sans-serif; letter-spacing: 2px; font-size: 12px;">SÍGUENOS EN NUESTRAS REDES</p>
             <div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
                 <a href="https://www.instagram.com/thunder_shoop1/" target="_blank">
