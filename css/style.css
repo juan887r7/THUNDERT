@@ -1,20 +1,11 @@
-/* ============================================================
-   THUNDERT — STYLESHEET
-   Organizado por secciones para fácil edición
-   ============================================================ */
-
-
-/* ============================================================
-   1. BASE — Reset y estilos globales
-   ============================================================ */
-html {
+html{
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
 *,
 *::before,
-*:after {
+*:after{
     box-sizing: inherit;
 }
 
@@ -30,10 +21,23 @@ h1, h2, h3, span, div {
     color: #ffffff;
 }
 
+.bg-gray, .seccion-ultimo {
+    background-color: #0a0a0a !important;
+    border-radius: 10px;
+}
 
-/* ============================================================
-   2. HEADER — Barra de navegación fija
-   ============================================================ */
+.ultimo-ind {
+    background-color: #111111;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.txt-base-carousel-section-price {
+    color: #ffffff !important;
+}
+
+/*header*/
 #headerTHUNDERT.fixed-header {
     position: fixed;
     top: 0;
@@ -60,8 +64,8 @@ h1, h2, h3, span, div {
 }
 
 .wrapper {
-    width: 90%;
-    margin: 0 auto;
+    width: 95%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,25 +74,6 @@ h1, h2, h3, span, div {
 .nav-links {
     display: flex;
     align-items: center;
-}
-
-.nav-links ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding-left: 0;
-}
-
-.nav-links ul li {
-    margin-left: 30px;
-}
-
-.nav-links ul li a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.6rem;
 }
 
 .d-flex {
@@ -108,17 +93,10 @@ h1, h2, h3, span, div {
     font-weight: 800;
 }
 
-/* Header — Responsive móvil */
-@media (max-width: 992px) {
-    #site-logo img { width: 80px; }
-    .nav-links ul li a { font-size: 1.1rem; }
-}
-
 @media (max-width: 768px) {
     #headerTHUNDERT.fixed-header {
         height: auto !important;
-        padding: 5px 0 !important;
-        background-color: rgba(255, 255, 255, 0.98);
+        padding: 10px 0 !important;
     }
     .wrapper {
         flex-direction: column !important;
@@ -131,7 +109,7 @@ h1, h2, h3, span, div {
         margin-bottom: 20px !important;
     }
     #site-logo img {
-        width: 60px !important;
+        width: 250px !important;
         max-width: 90% !important;
         height: auto !important;
         margin: 0 !important;
@@ -140,15 +118,6 @@ h1, h2, h3, span, div {
     }
     .nav-links {
         padding-left: 0 !important;
-    }
-    .nav-links ul {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 12px !important;
-    }
-    .nav-links ul li a {
-        font-size: 0.85rem !important;
     }
     .d-flex {
         gap: 25px !important;
@@ -162,10 +131,36 @@ h1, h2, h3, span, div {
     }
 }
 
+/*footer*/
+.footer-basic {
+    padding: 40px 0;
+    background-color: #000;
+    color: #ffffff;
+}
 
-/* ============================================================
-   3. PORTADA / BANNER PRINCIPAL
-   ============================================================ */
+.footer-basic .social {
+    text-align: center;
+}
+
+.footer-basic .social > a {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    margin: 0 8px;
+    color: #ffffff;
+    opacity: 0.75;
+}
+
+.footer-basic .social > a:hover {
+    opacity: 1;
+}
+
+/*portada*/
 .portada {
     background-image: url(../img/banner.jpeg);
     background-attachment: scroll;
@@ -182,7 +177,6 @@ h1, h2, h3, span, div {
 }
 
 .header__texto {
-    display: none !important; /* Texto del banner oculto */
     text-align: center;
     color: #ffffff;
     max-width: 800px;
@@ -192,7 +186,7 @@ h1, h2, h3, span, div {
 
 .header__texto h2 {
     font-size: 7rem;
-    margin: 0 0 10px 0;
+    margin: 0px 0px 10px 0px;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 900;
@@ -214,7 +208,6 @@ h1, h2, h3, span, div {
     letter-spacing: 2px;
 }
 
-/* Portada — Responsive móvil */
 @media (max-width: 768px) {
     .portada {
         background-color: #000 !important;
@@ -227,15 +220,81 @@ h1, h2, h3, span, div {
         padding: 0 !important;
         background-blend-mode: normal !important;
     }
+    .header {
+        margin-bottom: 0 !important;
+    }
+}
+
+.header__texto {
+    display: none !important;
+}
+
+.wrapper {
+    width: 90%;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0px;
+}
+
+.nav-links ul li {
+    margin-left: 30px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 992px) {
+    #site-logo img { width: 80px; }
+    .nav-links ul li a { font-size: 1.1rem; }
+    .header__texto h2 { font-size: 4rem; }
+}
+
+@media (max-width: 768px) {
+    #headerTHUNDERT.fixed-header {
+        padding: 5px 0 !important;
+        background-color: rgba(255, 255, 255, 0.98);
+    }
+    #site-logo img {
+        width: 60px !important;
+        margin-bottom: 2px !important;
+    }
+    .nav-links ul {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 12px !important;
+    }
+    .nav-links ul li a {
+        font-size: 0.85rem !important;
+    }
+    .portada {
+        padding-top: 150px !important;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
     .header__texto h2 {
         font-size: 3.2rem !important;
     }
 }
 
-
-/* ============================================================
-   4. WHATSAPP — Botón flotante
-   ============================================================ */
 .whatsapp-container {
     position: fixed;
     bottom: 20px;
@@ -254,12 +313,8 @@ h1, h2, h3, span, div {
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
-
-/* ============================================================
-   5. SECCIÓN "LO ÚLTIMO" — Carrusel principal (index.html)
-   ============================================================ */
-.titulo-seccion-grande,
-.titulo-seccion {
+/* SECCIÓN LO ÚLTIMO */
+.titulo-seccion-grande, .titulo-seccion {
     color: #ffffff !important;
     font-family: 'Arial Black', Gadget, sans-serif !important;
     font-weight: 900 !important;
@@ -268,9 +323,18 @@ h1, h2, h3, span, div {
     font-size: 4.5rem;
     letter-spacing: 8px;
     margin: 10px 0;
-    text-shadow: 0px 4px 10px rgba(255,255,255,0.1);
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     display: block;
     width: 100%;
+}
+
+.nombre-pro, .nombre-producto {
+    font-family: 'Arial Black', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: -1px !important;
+    color: #000 !important;
+    text-transform: uppercase;
 }
 
 .carrusel-wrapper {
@@ -281,12 +345,6 @@ h1, h2, h3, span, div {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 60px;
-}
-
-.bg-gray,
-.seccion-ultimo {
-    background-color: #0a0a0a !important;
-    border-radius: 10px;
 }
 
 .bg-gray.seccion-ultimo {
@@ -301,6 +359,56 @@ h1, h2, h3, span, div {
     overflow-x: hidden;
     scroll-behavior: smooth;
     background-color: transparent;
+}
+
+.ultimo-ind {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-width: 320px;
+    max-width: 320px;
+    flex-shrink: 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.txt-base-carousel-secction--discount {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+.ultimo-ind span:not(.txt-base-carousel-secction--discount) {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.txt-base-carousel-section-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 15px;
 }
 
 .flecha-carrusel {
@@ -329,115 +437,6 @@ h1, h2, h3, span, div {
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Tarjeta individual del carrusel */
-.ultimo-ind {
-    flex: 0 0 300px !important;
-    min-width: 300px !important;
-    background-color: white !important;
-    border-radius: 20px !important;
-    padding: 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    scroll-snap-align: center !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    justify-content: space-between;
-}
-
-.ultimo-ind img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 10px !important;
-}
-
-.ultimo-ind .producto {
-    width: 100% !important;
-    height: 300px !important;
-    object-fit: contain !important;
-    background-color: #fcfcfc !important;
-    border-radius: 10px !important;
-    padding: 20px !important;
-    transition: transform 0.3s ease !important;
-}
-
-.ultimo-ind:hover .producto { transform: scale(1.05) !important; }
-
-.nombre-pro,
-.nombre-producto {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 1.8rem !important;
-    text-transform: uppercase !important;
-    color: #000000 !important;
-    display: block !important;
-    margin-top: 15px !important;
-    letter-spacing: -0.5px !important;
-}
-
-.precio {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 2.2rem !important;
-    color: #000000 !important;
-    margin: 10px 0 !important;
-    display: block !important;
-}
-
-.txt-base-carousel-section-price {
-    font-family: Arial, sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 2.2rem !important;
-    color: #000000 !important;
-    text-align: center !important;
-    display: block !important;
-    margin: 15px 0 !important;
-    line-height: 1 !important;
-    letter-spacing: -1px !important;
-}
-
-.txt-base-carousel-section-price::first-letter {
-    font-size: 1.6rem;
-    vertical-align: top;
-}
-
-.txt-base-carousel-secction--discount {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 3px;
-    margin: 0 5px;
-    text-transform: uppercase;
-}
-
-.ultimo-ind span:not(.txt-base-carousel-secction--discount) {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #000;
-    text-transform: uppercase;
-    margin: 10px 0;
-}
-
-.boton-comprar-wa {
-    display: block;
-    background-color: #000;
-    color: #fff !important;
-    text-align: center;
-    padding: 10px;
-    margin-top: 10px;
-    text-decoration: none;
-    font-weight: 900 !important;
-    font-size: 14px;
-    font-family: Arial, sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: 4px;
-}
-
-.boton-comprar-wa:hover { background-color: #333; }
-
 .boton--primario {
     background-color: #000000;
     color: #ffffff;
@@ -453,111 +452,7 @@ h1, h2, h3, span, div {
 
 .boton--primario:hover { background-color: #444; }
 
-.producto {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    display: block;
-}
-
-/* Carrusel — Responsive móvil */
-@media (max-width: 767px) {
-    .titulo-seccion-grande {
-        font-size: 1.8rem !important;
-        letter-spacing: 4px !important;
-        margin-top: 10px !important;
-        margin-bottom: 15px !important;
-        display: block;
-    }
-    .ultimo-ind {
-        padding: 10px !important;
-        margin: 5px !important;
-    }
-    .ultimo-ind .producto {
-        height: 180px !important;
-        object-fit: contain !important;
-    }
-    .nombre-pro { font-size: 1.1rem !important; }
-    .txt-base-carousel-section-price { font-size: 1.4rem !important; }
-}
-
-@media (min-width: 768px) {
-    .ultimo-ind {
-        flex: 0 0 31.5% !important;
-        min-width: 320px !important;
-    }
-}
-
-
-/* ============================================================
-   6. SECCIÓN CATEGORÍAS — HOMBRE / MUJER / ACCESORIOS (index)
-   ============================================================ */
-.seccion-categorias {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
-    background-color: #000;
-    width: 100%;
-    margin: 0;
-}
-
-.enlace-categoria {
-    text-decoration: none;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    height: 600px;
-    background-color: #000;
-}
-
-.categoria-item {
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-}
-
-.categoria-item img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-    filter: brightness(0.9);
-    transition: transform 0.6s ease;
-}
-
-.enlace-categoria:hover img { transform: scale(1.05); }
-
-/* Nombre sobre la imagen (HOMBRE / ACCESORIOS / MUJER) */
-.texto-superpuesto {
-    position: absolute;
-    bottom: 40px;           /* ← Cambia este valor para subir/bajar el texto */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 800;
-    font-size: 1.2rem;      /* ← Cambia para agrandar/achicar el texto */
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    z-index: 10;
-}
-
-/* Línea decorativa debajo del nombre */
-.texto-superpuesto::after {
-    content: '';
-    display: block;
-    width: 60px;            /* ← Cambia el ancho de la línea */
-    height: 3px;            /* ← Cambia el grosor de la línea */
-    background-color: white;
-    margin: 10px auto 0;
-    box-shadow: 0 0 8px rgba(255,255,255,0.6);
-}
-
-/* Categorías antiguas (contenedor-categorias) */
+/*categorias*/
 .contenedor-categorias {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -619,27 +514,7 @@ h1, h2, h3, span, div {
 
 .categoria-card:hover .categoria-info h2::after { width: 60px; }
 
-/* Categorías — Responsive móvil */
 @media (max-width: 768px) {
-    .seccion-categorias {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 15px;
-        padding: 15px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    .seccion-categorias::-webkit-scrollbar { display: none; }
-    .enlace-categoria {
-        flex: 0 0 85% !important;
-        height: auto !important;
-    }
-    .categoria-item img {
-        height: 450px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
     .contenedor-categorias {
         display: flex !important;
         overflow-x: auto !important;
@@ -661,10 +536,296 @@ h1, h2, h3, span, div {
     }
 }
 
+.boton-comprar-wa {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 4px;
+}
 
-/* ============================================================
-   7. HOMBRE & MUJER — Grid de productos con tallas
-   ============================================================ */
+.content-fragancias {
+    padding-top: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    background-color: #000 !important;
+}
+
+.titulo-principal {
+    color: #fff !important;
+    font-size: 3.5rem !important;
+    letter-spacing: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+    margin: 0 auto 50px auto !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.ultimo-ind img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.titulo-marca::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: white;
+    margin: 10px auto 0 auto;
+}
+
+.contenedor-horizontal::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .titulo-seccion-grande {
+        font-size: 1.8rem !important;
+        letter-spacing: 4px !important;
+        margin-top: 10px !important;
+        margin-bottom: 15px !important;
+        display: block;
+    }
+    .ultimo-ind {
+        padding: 10px !important;
+        margin: 5px !important;
+    }
+    .ultimo-ind .producto {
+        height: 180px !important;
+        object-fit: contain !important;
+    }
+    .nombre-pro { font-size: 1.1rem !important; }
+    .txt-base-carousel-section-price { font-size: 1.4rem !important; }
+}
+
+@media (min-width: 768px) {
+    .ultimo-ind {
+        flex: 0 0 31.5% !important;
+        min-width: 320px !important;
+    }
+    .titulo-marca { font-size: 3rem !important; }
+}
+
+/* ZAPATILLAS */
+.titulo-marca {
+    font-family: 'Montserrat', sans-serif !important;
+    color: white !important;
+    font-size: 2.2rem !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 8px !important;
+    margin: 60px 0 20px 0 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.titulo-marca::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: white;
+    margin: 10px auto 0 auto;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-track {
+    background: #333333 !important;
+}
+
+.seccion-marca {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-imagen.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    padding: 50px 0 !important;
+}
+
+.ultimo-ind img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+}
+
+.contenedor-horizontal {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar {
+    height: 6px !important;
+    display: block !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-thumb {
+    background: white !important;
+    border-radius: 10px !important;
+}
+
+.contenedor-horizontal::-webkit-scrollbar-track {
+    background: #333333 !important;
+}
+
+@media (max-width: 768px) {
+    .contenedor-horizontal::-webkit-scrollbar { display: none !important; }
+    .ultimo-ind {
+        flex: 0 0 85% !important;
+        min-width: 85% !important;
+    }
+}
+
+.ultimo-ind {
+    flex: 0 0 300px !important;
+    min-width: 300px !important;
+    background-color: white !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    scroll-snap-align: center !important;
+}
+
+.nombre-pro {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.8rem !important;
+    text-transform: uppercase !important;
+    color: #000000 !important;
+    display: block !important;
+    margin-top: 15px !important;
+    letter-spacing: -0.5px !important;
+}
+
+.precio {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 2.2rem !important;
+    color: #000000 !important;
+    margin: 10px 0 !important;
+    display: block !important;
+}
+
+.boton-comprar-wa {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+}
+
+.ultimo-ind .producto {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: contain !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 10px !important;
+    padding: 15px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.ultimo-ind:hover .producto { transform: scale(1.05) !important; }
+
+.txt-base-carousel-section-price::first-letter {
+    font-size: 1.6rem;
+    vertical-align: top;
+}
+
+.ultimo-ind .producto {
+    padding: 20px !important;
+    background-color: #fcfcfc !important;
+    object-fit: contain !important;
+}
+
+.txt-base-carousel-section-price {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 2.2rem !important;
+    color: #000000 !important;
+    text-align: center !important;
+    display: block !important;
+    margin: 15px 0 !important;
+    line-height: 1 !important;
+    letter-spacing: -1px !important;
+}
+
+/* CATEGORÍAS */
+.seccion-categorias {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background-color: #000;
+    width: 100%;
+    margin: 0;
+}
+
+.enlace-categoria {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    background-color: #000;
+}
+
+.categoria-item {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+}
+
+.categoria-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    filter: brightness(0.9);
+    transition: transform 0.6s ease;
+}
+
+.enlace-categoria:hover img { transform: scale(1.05); }
+
+.texto-superpuesto {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 10;
+}
+
+.texto-superpuesto::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: white;
+    margin: 8px auto 0;
+}
+
+/* GRID PRODUCTOS */
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -674,7 +835,6 @@ h1, h2, h3, span, div {
     padding: 40px 20px;
 }
 
-/* Tarjeta de producto */
 .tarjeta-nombre {
     color: #ffffff;
     font-family: Arial, sans-serif;
@@ -715,8 +875,27 @@ h1, h2, h3, span, div {
     text-align: center;
 }
 
-/* Hombre & Mujer — Responsive móvil */
+/* MÓVIL */
 @media (max-width: 768px) {
+    .seccion-categorias {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 15px;
+        padding: 15px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .seccion-categorias::-webkit-scrollbar { display: none; }
+    .enlace-categoria {
+        flex: 0 0 85% !important;
+        height: auto !important;
+    }
+    .categoria-item img {
+        height: 450px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
     .grid-productos {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px !important;
@@ -733,142 +912,3 @@ h1, h2, h3, span, div {
         font-size: 11px !important;
     }
 }
-
-
-/* ============================================================
-   8. ZAPATILLAS / SNEAKERS — Marcas y modelos
-   ============================================================ */
-
-/* Título de cada marca (NIKE, ADIDAS, etc.) */
-.titulo-marca {
-    font-family: 'Montserrat', sans-serif !important;
-    color: white !important;
-    font-size: 2.2rem !important;
-    text-align: center !important;
-    text-transform: uppercase !important;
-    letter-spacing: 8px !important;
-    margin: 60px 0 20px 0 !important;
-    width: 100% !important;
-    display: block !important;
-}
-
-/* Línea decorativa debajo del título de marca */
-.titulo-marca::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background-color: white;
-    margin: 10px auto 0 auto;
-}
-
-/* Sección de cada marca */
-.seccion-marca {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-imagen.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    padding: 50px 0 !important;
-}
-
-/* Slider horizontal de productos */
-.contenedor-horizontal {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    width: 100% !important;
-    gap: 20px !important;
-    padding: 20px !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory !important;
-}
-
-.contenedor-horizontal::-webkit-scrollbar {
-    height: 6px !important;
-    display: block !important;
-}
-
-.contenedor-horizontal::-webkit-scrollbar-thumb {
-    background: white !important;
-    border-radius: 10px !important;
-}
-
-.contenedor-horizontal::-webkit-scrollbar-track {
-    background: #333333 !important;
-}
-
-/* Zapatillas — Responsive móvil */
-@media (max-width: 768px) {
-    .contenedor-horizontal::-webkit-scrollbar { display: none !important; }
-    .ultimo-ind {
-        flex: 0 0 85% !important;
-        min-width: 85% !important;
-    }
-}
-
-@media (min-width: 768px) {
-    .titulo-marca { font-size: 3rem !important; }
-}
-
-
-/* ============================================================
-   9. ACCESORIOS — Filtros y grid
-   ============================================================ */
-/* Los estilos del grid y tarjetas son compartidos con
-   Hombre y Mujer (ver sección 7 — GRID PRODUCTOS).
-   Estilos específicos de accesorios van aquí si se necesitan. */
-
-
-/* ============================================================
-   10. FRAGANCIAS — Sección de perfumes
-   ============================================================ */
-.content-fragancias {
-    padding-top: 160px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    background-color: #000 !important;
-}
-
-.titulo-principal {
-    color: #fff !important;
-    font-size: 3.5rem !important;
-    letter-spacing: 12px !important;
-    text-transform: uppercase !important;
-    font-weight: 900 !important;
-    margin: 0 auto 50px auto !important;
-    text-align: center !important;
-    width: 100% !important;
-}
-
-
-/* ============================================================
-   11. FOOTER — Sección "Síguenos en nuestras redes"
-   ============================================================ */
-.footer-basic {
-    padding: 40px 0;
-    background-color: #000;
-    color: #ffffff;
-}
-
-.footer-basic .social {
-    text-align: center;
-}
-
-.footer-basic .social > a {
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 50%;
-    border: 1px solid #ffffff;
-    margin: 0 8px;
-    color: #ffffff;
-    opacity: 0.75;
-}
-
-.footer-basic .social > a:hover { opacity: 1; }

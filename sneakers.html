@@ -1,49 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNEAKERS | THUNDERT</title>
     <link rel="icon" href="img/favicon.png?v=2" type="image/png">
     <link rel="stylesheet" href="css/style.css?v=1.9">
     <style>
-        /* Estilos de tarjeta unificados con hombre.html */
+        /* Tarjetas estilo negro igual que hombre.html */
+        .ultimo-ind {
+            background: #0a0a0a !important;
+            border-radius: 0 !important;
+            border: none !important;
+            padding: 0 !important;
+            flex: 0 0 280px !important;
+            min-width: 280px !important;
+            overflow: hidden !important;
+            box-shadow: none !important;
+        }
+        .ultimo-ind img {
+            width: 100% !important;
+            aspect-ratio: 3/4 !important;
+            object-fit: cover !important;
+            display: block !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            height: auto !important;
+            transition: transform 0.4s ease !important;
+            background: #111 !important;
+        }
+        .ultimo-ind:hover img { transform: scale(1.03) !important; }
+        .snk-info { padding: 14px 10px 18px; text-align: center; }
         .nombre-pro {
-            color: black !important;
+            color: white !important;
             font-family: Arial, sans-serif !important;
             font-weight: 900 !important;
-            font-size: 1.4rem !important;
+            font-size: 1.1rem !important;
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
             display: block !important;
-            margin-bottom: 8px !important;
+            margin: 12px 10px 6px !important;
         }
         .precio {
             font-family: Arial, sans-serif !important;
             font-weight: 900 !important;
-            font-size: 1.8rem !important;
-            color: black !important;
+            font-size: 1.4rem !important;
+            color: white !important;
             display: block !important;
-            margin-bottom: 14px !important;
-        }
-        .titulo-marca {
-            font-family: Arial, sans-serif !important;
-            font-weight: 900 !important;
+            margin: 0 10px 10px !important;
         }
         .boton-comprar-wa {
-            display: inline-block !important;
-            background: black !important;
-            color: white !important;
-            padding: 12px 25px !important;
+            display: block !important;
+            background: white !important;
+            color: black !important;
+            padding: 10px !important;
             font-family: Arial, sans-serif !important;
             font-weight: 900 !important;
-            font-size: 1.1rem !important;
+            font-size: 0.95rem !important;
             text-decoration: none !important;
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
             border-radius: 0 !important;
+            margin: 0 10px 14px !important;
         }
-        .boton-comprar-wa:hover { background: #333 !important; }
+        .boton-comprar-wa:hover { background: #ddd !important; color: black !important; }
+        .titulo-marca { font-family: Arial, sans-serif !important; font-weight: 900 !important; }
         .seccion-marca { padding: 20px 0 !important; background-image: none !important; background-attachment: unset !important; }
         body::before { content: ""; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='32' fill='rgba(255,255,255,0.07)' letter-spacing='6' transform='rotate(-25 150 60)'%3ETHUNDERT%3C/text%3E%3C/svg%3E"); background-repeat: repeat; pointer-events: none; z-index: 0; user-select: none; }
 
@@ -121,6 +143,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button><button class="talla-btn" onclick="selTalla(this)">44</button><button class="talla-btn" onclick="selTalla(this)">45</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -138,6 +161,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button><button class="talla-btn" onclick="selTalla(this)">44</button><button class="talla-btn" onclick="selTalla(this)">45</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -155,6 +179,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button><button class="talla-btn" onclick="selTalla(this)">44</button><button class="talla-btn" onclick="selTalla(this)">45</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -172,6 +197,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">35</button><button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button><button class="talla-btn" onclick="selTalla(this)">44</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -189,6 +215,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">35</button><button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button><button class="talla-btn" onclick="selTalla(this)">44</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -206,6 +233,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">35</button><button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -223,6 +251,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button><button class="talla-btn" onclick="selTalla(this)">44</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -240,6 +269,7 @@
                             <button class="talla-btn" onclick="selTalla(this)">35</button><button class="talla-btn" onclick="selTalla(this)">36</button><button class="talla-btn" onclick="selTalla(this)">37</button><button class="talla-btn" onclick="selTalla(this)">38</button><button class="talla-btn" onclick="selTalla(this)">39</button><button class="talla-btn" onclick="selTalla(this)">40</button><button class="talla-btn" onclick="selTalla(this)">41</button><button class="talla-btn" onclick="selTalla(this)">42</button><button class="talla-btn" onclick="selTalla(this)">43</button>
                         </div>
                         <div class="precio">—</div>
+                        <a href="#" class="boton-comprar-wa" onclick="comprarSnk(this,'Modelo','3206081551');return false;">COMPRAR</a>
                     </div>
                 </div>
             </div>

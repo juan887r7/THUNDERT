@@ -56,35 +56,78 @@
             }
         }
 
-        /* Estilos de tarjeta unificados con hombre.html */
-        .nombre-pro {
-            color: black !important;
+        /* === TARJETAS LO ÚLTIMO — estilo negro igual que hombre === */
+        .ultimo-ind {
+            background: #0a0a0a !important;
+            border-radius: 0 !important;
+            border: none !important;
+            padding: 0 !important;
+            flex: 0 0 280px !important;
+            min-width: 280px !important;
+            overflow: hidden !important;
+            box-shadow: none !important;
+        }
+        .ultimo-ind img.producto {
+            width: 100% !important;
+            aspect-ratio: 3/4 !important;
+            object-fit: cover !important;
+            display: block !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            height: auto !important;
+            transition: transform 0.4s ease !important;
+            background: #111 !important;
+            margin-bottom: 0 !important;
+        }
+        .ultimo-ind:hover img.producto { transform: scale(1.03) !important; }
+        .ultimo-info { padding: 14px 10px 4px; text-align: center; }
+        .ultimo-ind .nombre-pro {
+            color: white !important;
+            font-size: 1rem !important;
+            margin: 0 0 6px !important;
+            display: block !important;
+        }
+        .ultimo-ind .precio-ultimo {
+            color: white !important;
             font-family: Arial, sans-serif !important;
             font-weight: 900 !important;
-            font-size: 1.4rem !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
+            font-size: 1.3rem !important;
             display: block !important;
             margin-bottom: 8px !important;
         }
-        .boton-comprar-wa {
-            display: inline-block !important;
-            background: black !important;
-            color: white !important;
-            padding: 12px 25px !important;
+        /* Tallas en Lo Último */
+        .tipo-grupo { display: flex; gap: 6px; justify-content: center; margin-bottom: 8px; }
+        .tipo-btn {
+            background: transparent; border: 1px solid #555; color: #888;
+            padding: 4px 10px; font-family: Arial, sans-serif; font-size: 9px;
+            font-weight: 700; cursor: pointer; letter-spacing: 1px; transition: all 0.15s;
+        }
+        .tipo-btn:hover, .tipo-btn.selected { border-color: #fff; color: #fff; background: #1a1a1a; }
+        .tallas-label { color: #666; font-size: 9px; letter-spacing: 2px; font-family: Arial; margin-bottom: 5px; display: block; text-align: center; }
+        .tallas-grupo { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-bottom: 8px; }
+        .talla-btn {
+            background: transparent; border: 1px solid #444; color: #fff;
+            padding: 4px 8px; font-family: Arial; font-size: 10px;
+            font-weight: 700; cursor: pointer; transition: all 0.15s;
+        }
+        .talla-btn:hover { border-color: #fff; }
+        .talla-btn.selected { background: #fff; color: #000; border-color: #fff; }
+        .tallas-ropa.visible, .tallas-zapato.visible { display: flex; }
+        .ultimo-ind .boton-comprar-wa {
+            display: block !important;
+            background: white !important;
+            color: black !important;
+            padding: 10px !important;
             font-family: Arial, sans-serif !important;
             font-weight: 900 !important;
-            font-size: 1.1rem !important;
+            font-size: 0.9rem !important;
             text-decoration: none !important;
             text-transform: uppercase !important;
-            letter-spacing: 1px !important;
             border-radius: 0 !important;
+            margin: 4px 10px 14px !important;
+            letter-spacing: 1px !important;
         }
-        .boton-comprar-wa:hover { background: #333 !important; }
-        @media (max-width: 768px) {
-            .nombre-pro { font-size: 0.85rem !important; }
-            .boton-comprar-wa { font-size: 0.8rem !important; padding: 8px 10px !important; width: 100% !important; }
-        }
+        .ultimo-ind .boton-comprar-wa:hover { background: #ddd !important; }
 
         /* === MARCA DE AGUA EN SECCIÓN CATEGORÍAS === */
         .seccion-categorias {
@@ -213,24 +256,53 @@
         <button class="flecha-carrusel prev" onclick="moverCarrusel(-345)"> < </button>
         <div class="bg-gray seccion-ultimo" id="contenedor-carrusel">
 
-            <!-- Tarjeta de producto mejorada -->
-            <div class="ultimo-ind" style="background-color: white; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #ddd;">
-                <img class="producto" src="img/buso1.png" style="width: 100%; border-radius: 10px; height: 280px; object-fit: contain; margin-bottom: 10px;">
-                
-                <!-- NOMBRE: Ahora con Arial Black y más grande -->
-                 <span class="nombre-pro" style="font-weight: 900 !important; color: black !important; font-family: Arial !important; text-transform: uppercase !important;">FRAGANCIA TRUENO</span>
-
-
-                <!-- PRECIO: Bien sólido -->
-                <div style="display: block !important; text-align: center !important; margin: 15px 0 !important;">
-                    <span style="font-family: 'Arial Black', sans-serif !important; font-weight: 900 !important; font-size: 2.2rem !important; color: black !important; line-height: 1 !important; display: inline-block !important; vertical-align: middle !important; letter-spacing: -1px;">
-                        90.000 $
-                    </span>
+            <!-- TARJETA ROPA -->
+            <div class="ultimo-ind">
+                <img class="producto" src="img/buso1.png" alt="Buso Undergold">
+                <div class="ultimo-info">
+                    <span class="nombre-pro">BUSO UNDERGOLD</span>
+                    <span class="precio-ultimo">$ 320.000</span>
+                    <span class="tallas-label">TALLA</span>
+                    <div class="tallas-grupo">
+                        <button class="talla-btn" onclick="selTalla(this)">XS</button>
+                        <button class="talla-btn" onclick="selTalla(this)">S</button>
+                        <button class="talla-btn" onclick="selTalla(this)">M</button>
+                        <button class="talla-btn" onclick="selTalla(this)">L</button>
+                        <button class="talla-btn" onclick="selTalla(this)">XL</button>
+                    </div>
                 </div>
+                <a href="#" class="boton-comprar-wa" onclick="comprarUltimo(this,'Buso Undergold','3206081551');return false;">COMPRAR</a>
+            </div>
 
-                <a href="https://wa.me/3206081551?text=Hola%20Thundert,%20me%20interesa%20el%20Buso%20Undergold%20Negro" target="_blank" class="boton-comprar-wa" style="display: inline-block; background-color: black; color: white; text-decoration: none; padding: 12px 35px; border-radius: 5px; font-weight: 900; text-transform: uppercase; margin-top: 10px; font-family: 'Arial Black', sans-serif;">
-                    COMPRAR
-                </a>
+            <!-- TARJETA ZAPATO -->
+            <div class="ultimo-ind">
+                <img class="producto" src="img/sneakers1.png" alt="Zapato">
+                <div class="ultimo-info">
+                    <span class="nombre-pro">NOMBRE ZAPATO</span>
+                    <span class="precio-ultimo">$ 380.000</span>
+                    <span class="tallas-label">TALLA</span>
+                    <div class="tallas-grupo">
+                        <button class="talla-btn" onclick="selTalla(this)">36</button>
+                        <button class="talla-btn" onclick="selTalla(this)">37</button>
+                        <button class="talla-btn" onclick="selTalla(this)">38</button>
+                        <button class="talla-btn" onclick="selTalla(this)">39</button>
+                        <button class="talla-btn" onclick="selTalla(this)">40</button>
+                        <button class="talla-btn" onclick="selTalla(this)">41</button>
+                        <button class="talla-btn" onclick="selTalla(this)">42</button>
+                        <button class="talla-btn" onclick="selTalla(this)">43</button>
+                    </div>
+                </div>
+                <a href="#" class="boton-comprar-wa" onclick="comprarUltimo(this,'Zapato','3206081551');return false;">COMPRAR</a>
+            </div>
+
+            <!-- TARJETA SIN TALLA (fragancias, accesorios) -->
+            <div class="ultimo-ind">
+                <img class="producto" src="img/Ptrueno.png" alt="Fragancia Trueno">
+                <div class="ultimo-info">
+                    <span class="nombre-pro">FRAGANCIA TRUENO</span>
+                    <span class="precio-ultimo">$ 120.000</span>
+                </div>
+                <a href="https://wa.me/3206081551?text=Hola,%20me%20interesa%20la%20Fragancia%20Trueno" class="boton-comprar-wa">COMPRAR</a>
             </div>
 
         </div>
@@ -284,6 +356,28 @@
         function moverCarrusel(distancia) {
             const contenedor = document.getElementById('contenedor-carrusel');
             contenedor.scrollBy({ left: distancia, behavior: 'smooth' });
+        }
+        function selTipo(btn, tipo) {
+            const info = btn.closest('.ultimo-info');
+            info.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            info.querySelectorAll('.tallas-ropa, .tallas-zapato').forEach(g => g.classList.remove('visible'));
+            info.querySelector('.tallas-' + tipo).classList.add('visible');
+            info.querySelectorAll('.talla-btn').forEach(b => b.classList.remove('selected'));
+        }
+        function selTalla(btn) {
+            const grupo = btn.closest('.tallas-grupo');
+            grupo.querySelectorAll('.talla-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+        function comprarUltimo(btn, producto, tel) {
+            const card = btn.closest('.ultimo-ind');
+            const talla = card.querySelector('.talla-btn.selected');
+            const tipo = card.querySelector('.tipo-btn.selected');
+            if (tipo && !talla) { alert('Por favor selecciona una talla.'); return; }
+            const t = talla ? ` — Talla: ${talla.textContent}` : '';
+            const msg = `Hola Thundert, me interesa: ${producto}${t}`;
+            window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
 </body>
