@@ -569,10 +569,19 @@ h1, h2, h3, span, div {
     width: 100% !important;
 }
 
+/* Imagen de producto en tarjeta negra */
 .ultimo-ind img {
-    width: 100%;
-    border-radius: 8px;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    display: block !important;
+    object-fit: cover !important;
+    aspect-ratio: 1/1 !important;
+    object-position: center top !important;
+    transition: transform 0.4s ease !important;
+    background: #111 !important;
 }
+.ultimo-ind:hover img { transform: scale(1.03) !important; }
 
 .titulo-marca::after {
     content: '';
@@ -598,21 +607,20 @@ h1, h2, h3, span, div {
         display: block;
     }
     .ultimo-ind {
-        padding: 10px !important;
-        margin: 5px !important;
+        flex: 0 0 78vw !important;
+        min-width: 78vw !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
     }
-    .ultimo-ind .producto {
-        height: 180px !important;
-        object-fit: contain !important;
-    }
-    .nombre-pro { font-size: 1.1rem !important; }
-    .txt-base-carousel-section-price { font-size: 1.4rem !important; }
+    .nombre-pro { font-size: 0.9rem !important; }
+    .txt-base-carousel-section-price { font-size: 1.2rem !important; }
 }
 
 @media (min-width: 768px) {
     .ultimo-ind {
-        flex: 0 0 31.5% !important;
-        min-width: 320px !important;
+        flex: 0 0 280px !important;
+        min-width: 280px !important;
     }
     .titulo-marca { font-size: 3rem !important; }
 }
@@ -651,10 +659,23 @@ h1, h2, h3, span, div {
     padding: 50px 0 !important;
 }
 
-.ultimo-ind img {
+/* Imagen fragancia - fondo blanco para tapar marca de agua */
+.ultimo-ind .img-wrap {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    width: 100%;
+}
+.ultimo-ind .img-wrap img,
+.ultimo-ind img.producto {
     width: 100% !important;
     height: auto !important;
-    border-radius: 10px !important;
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 0 !important;
+    background: transparent !important;
 }
 
 .contenedor-horizontal {
@@ -691,16 +712,20 @@ h1, h2, h3, span, div {
     }
 }
 
+/* === LO ÚLTIMO — tarjetas negras estilo hombre === */
 .ultimo-ind {
-    flex: 0 0 300px !important;
-    min-width: 300px !important;
-    background-color: white !important;
-    border-radius: 20px !important;
-    padding: 20px !important;
+    flex: 0 0 280px !important;
+    min-width: 280px !important;
+    background-color: #0a0a0a !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     scroll-snap-align: center !important;
+    overflow: hidden !important;
 }
 
 .nombre-pro {
@@ -729,27 +754,44 @@ h1, h2, h3, span, div {
     text-transform: uppercase !important;
 }
 
+/* Producto en carrusel index */
 .ultimo-ind .producto {
     width: 100% !important;
-    height: 300px !important;
-    object-fit: contain !important;
-    background-color: #f9f9f9 !important;
-    border-radius: 10px !important;
-    padding: 15px !important;
-    transition: transform 0.3s ease !important;
+    height: auto !important;
+    aspect-ratio: 1/1 !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    background: #111 !important;
+    transition: transform 0.4s ease !important;
 }
-
-.ultimo-ind:hover .producto { transform: scale(1.05) !important; }
+.ultimo-ind:hover .producto { transform: scale(1.03) !important; }
 
 .txt-base-carousel-section-price::first-letter {
     font-size: 1.6rem;
     vertical-align: top;
 }
 
-.ultimo-ind .producto {
-    padding: 20px !important;
-    background-color: #fcfcfc !important;
-    object-fit: contain !important;
+/* colores nombre y precio en tarjeta negra */
+.nombre-pro {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    display: block !important;
+    margin: 12px 10px 4px !important;
+    letter-spacing: 1px !important;
+}
+
+.precio {
+    font-family: Arial, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.3rem !important;
+    color: #ffffff !important;
+    margin: 0 10px 10px !important;
+    display: block !important;
 }
 
 .txt-base-carousel-section-price {
